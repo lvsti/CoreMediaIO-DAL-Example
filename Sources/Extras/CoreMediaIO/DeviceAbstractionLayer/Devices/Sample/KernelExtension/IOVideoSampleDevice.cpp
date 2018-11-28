@@ -56,10 +56,11 @@
 #include "CMIO_KEXT_Sample_ControlIDs.h"
 
 // System Includes
-#include <IOKit/usb/IOUSBLog.h>
 #include <IOKit/video/IOVideoStreamDictionary.h>
 #include <IOKit/video/IOVideoStreamFormatDictionary.h>
 #include <IOKit/video/IOVideoControlDictionary.h>
+
+#include "IOUSBLog.h"
 
 namespace
 {

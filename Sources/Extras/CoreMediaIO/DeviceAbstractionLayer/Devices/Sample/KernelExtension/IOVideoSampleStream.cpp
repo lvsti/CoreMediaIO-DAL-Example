@@ -52,7 +52,7 @@
 #include "IOVideoSampleDevice.h"
 
 // System Includes
-#include <IOKit/usb/IOUSBLog.h>
+#include "IOUSBLog.h"
 
 #define super IOVideoStream
 OSDefineMetaClassAndStructors( IOVideoSampleStream, IOVideoStream)

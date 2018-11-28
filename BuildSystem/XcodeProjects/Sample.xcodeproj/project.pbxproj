@@ -283,6 +283,7 @@
 		1948B2400D99BFAF00011B5D /* CMIO_CC_608_Scraper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_CC_608_Scraper.h; sourceTree = "<group>"; };
 		7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Property_ScheduledOutputNotificationProc.cpp; sourceTree = "<group>"; };
 		7206D01414633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DP_Property_ScheduledOutputNotificationProc.h; sourceTree = "<group>"; };
+		BE69966621AEC9F7006014B1 /* IOUSBLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOUSBLog.h; sourceTree = "<group>"; };
 		DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = /System/Library/Frameworks/CoreMediaIO.framework; sourceTree = "<absolute>"; };
 		DEFCDABE09E7037600413E85 /* AUOutputBL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputBL.cpp; sourceTree = "<group>"; };
 		DEFCDABF09E7037600413E85 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
@@ -690,17 +691,18 @@
 		14F1EAE711A7375400B28A43 /* KernelExtension */ = {
 			isa = PBXGroup;
 			children = (
-				14F1EAEF11A7375400B28A43 /* SampleDriver-Info.plist */,
-				14F1EAF311A7375400B28A43 /* SampleUserClient-Info.plist */,
 				14F1EAE811A7375400B28A43 /* CMIO_KEXT_Sample_ControlIDs.h */,
-				14F1EAF111A7375400B28A43 /* IOVideoSampleDevice.h */,
+				BE69966621AEC9F7006014B1 /* IOUSBLog.h */,
 				14F1EAF011A7375400B28A43 /* IOVideoSampleDevice.cpp */,
+				14F1EAF111A7375400B28A43 /* IOVideoSampleDevice.h */,
 				14F1EAF211A7375400B28A43 /* IOVideoSampleDeviceShared.h */,
-				14F1EAF511A7375400B28A43 /* IOVideoSampleStream.h */,
 				14F1EAF411A7375400B28A43 /* IOVideoSampleStream.cpp */,
+				14F1EAF511A7375400B28A43 /* IOVideoSampleStream.h */,
+				14F1EAF811A7375400B28A43 /* ntsc2vuy720x480.yuv */,
 				14F1EAF611A7375400B28A43 /* ntsc2Vuy1280x720Data.yuv */,
 				14F1EAF711A7375400B28A43 /* ntsc2Vuy1920x1080Data.yuv */,
-				14F1EAF811A7375400B28A43 /* ntsc2vuy720x480.yuv */,
+				14F1EAEF11A7375400B28A43 /* SampleDriver-Info.plist */,
+				14F1EAF311A7375400B28A43 /* SampleUserClient-Info.plist */,
 			);
 			path = KernelExtension;
 			sourceTree = "<group>";
