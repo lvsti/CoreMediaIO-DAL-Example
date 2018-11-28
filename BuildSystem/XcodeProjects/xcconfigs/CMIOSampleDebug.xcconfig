@@ -1,0 +1,12 @@
+//	<codex>
+//	<abstract>This is the debug .xcconfig file for the CoreMediaIO Sample.  Settings common to all debug configurations can be specified here.</abstract>
+//	</codex>
+
+XCCONFIG_CMIO_SAMPLE_DEBUG = INCLUDED
+
+#include "CMIOSampleCommon.xcconfig"
+
+COPY_PHASE_STRIP = NO
+GCC_OPTIMIZATION_LEVEL = 0
+GCC_GENERATE_DEBUGGING_SYMBOLS = YES
+GCC_PREPROCESSOR_DEFINITIONS = 

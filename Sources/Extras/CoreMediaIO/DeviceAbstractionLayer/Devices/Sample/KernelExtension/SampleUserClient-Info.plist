@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.cmio.driver.SampleUserClient</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>CFBundleName</key>
+	<string>IOVideoDeviceUserClient</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>IOVideoSampleStreamUserClient</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.cmio.driver.SampleUserClient</string>
+			<key>IOClass</key>
+			<string>IOVideoDeviceUserClientInit</string>
+			<key>IOProviderClass</key>
+			<string>IOVideoSampleDevice</string>
+			<key>IOProviderMergeProperties</key>
+			<dict>
+				<key>IOUserClientClass</key>
+				<string>IOVideoDeviceUserClient</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.iokit.IOVideoFamily</key>
+		<string>1.0</string>
+	</dict>
+</dict>
+</plist>
