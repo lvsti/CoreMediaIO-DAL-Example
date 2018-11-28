@@ -16,6 +16,7 @@
 		14C6D76E11AB20D700E54D26 /* IOVideoSampleDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F1EAF011A7375400B28A43 /* IOVideoSampleDevice.cpp */; };
 		14C6D76F11AB20D900E54D26 /* IOVideoSampleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F1EAF411A7375400B28A43 /* IOVideoSampleStream.cpp */; };
 		7206D01514633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */; };
+		BE6996CE21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */; };
 		E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
@@ -284,6 +285,7 @@
 		7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Property_ScheduledOutputNotificationProc.cpp; sourceTree = "<group>"; };
 		7206D01414633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DP_Property_ScheduledOutputNotificationProc.h; sourceTree = "<group>"; };
 		BE69966621AEC9F7006014B1 /* IOUSBLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOUSBLog.h; sourceTree = "<group>"; };
+		BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Sample_PlugInInterface.cpp; sourceTree = "<group>"; };
 		DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = /System/Library/Frameworks/CoreMediaIO.framework; sourceTree = "<absolute>"; };
 		DEFCDABE09E7037600413E85 /* AUOutputBL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputBL.cpp; sourceTree = "<group>"; };
 		DEFCDABF09E7037600413E85 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
@@ -942,6 +944,7 @@
 				E42AA5C20E07410B000C4D64 /* CMIO_DP_Sample_Device.h */,
 				E42AA5C10E07410B000C4D64 /* CMIO_DP_Sample_Device.cpp */,
 				E42AA5C60E07410B000C4D64 /* CMIO_DP_Sample_Stream.h */,
+				BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */,
 				E42AA5C50E07410B000C4D64 /* CMIO_DP_Sample_Stream.cpp */,
 				E4857F1F10C8437F008FE5C2 /* CMIO_DP_Sample_ControlIDs.h */,
 				E42AA5C70E07410B000C4D64 /* Properties */,
@@ -1224,6 +1227,7 @@
 				E42AA56C0E073EEC000C4D64 /* CMIO_DP_DeviceSettings.cpp in Sources */,
 				E42AA56D0E073EEC000C4D64 /* CMIO_DP_HardwarePlugInInterface.cpp in Sources */,
 				E42AA56E0E073EEC000C4D64 /* CMIO_DP_UserInfo.cpp in Sources */,
+				BE6996CE21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp in Sources */,
 				E42AA56F0E073EEC000C4D64 /* CMIO_DP_Property_Base.cpp in Sources */,
 				E42AA5700E073EEC000C4D64 /* CMIO_DP_Property_FormatList.cpp in Sources */,
 				E42AA5710E073EEC000C4D64 /* CAHostTimeBase.cpp in Sources */,
