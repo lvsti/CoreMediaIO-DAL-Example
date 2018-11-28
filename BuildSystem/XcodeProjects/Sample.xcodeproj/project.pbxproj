@@ -776,9 +776,8 @@
 			children = (
 				DEFCDAA609E7037600413E85 /* PublicUtility */,
 			);
-			name = CoreAudio;
-			path = /Library/Developer/CoreAudio;
-			sourceTree = "<absolute>";
+			path = CoreAudio;
+			sourceTree = "<group>";
 		};
 		DEFCDA9109E7030600413E85 /* CoreMediaIO */ = {
 			isa = PBXGroup;
