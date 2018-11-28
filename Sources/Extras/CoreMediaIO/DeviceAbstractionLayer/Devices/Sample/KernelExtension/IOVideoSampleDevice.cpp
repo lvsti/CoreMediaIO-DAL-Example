@@ -240,7 +240,7 @@ bool IOVideoSampleDevice::start(IOService* provider)
 			break;
 		}
 
-		mNumBuffers = mYUVSize / kYUVVFrameSize;
+		mNumBuffers = (UInt32)(mYUVSize / kYUVVFrameSize);
 		mh = (struct mach_header_t*)kmod_info.address;
 		mHD720pYUVData = (char*)getsectdatafromheader(mh,
 												  (char*) "HD720YUV_DATA",
@@ -266,7 +266,7 @@ bool IOVideoSampleDevice::start(IOService* provider)
 		}
 
 
-		mNumBuffers = mYUVSize / kYUVVFrameSize;
+		mNumBuffers = (UInt32)(mYUVSize / kYUVVFrameSize);
 		mMaxNumBuffers = mNumBuffers; 
 
 		//		result = AllocateFrameBuffers(kYUVVFrameSize*mNumBuffers);
@@ -1362,14 +1362,14 @@ bool IOVideoSampleDevice::AddInputStreams()
 			case kYUV422_720x480:
 			{
 				srcBuffer = mYUVData; 
-				numBuffers = mYUVSize / kYUVVFrameSize;
+				numBuffers = (UInt32)(mYUVSize / kYUVVFrameSize);
 				theBufferSize = kYUVVFrameSize; 
 			}
 				break;
 			case kYUV422_1280x720:
 			{
 				srcBuffer = mHD720pYUVData; 
-				numBuffers = mHD720pYUVSize / kHD720pYUVVFrameSize;
+				numBuffers = (UInt32)(mHD720pYUVSize / kHD720pYUVVFrameSize);
 				if (numBuffers > mMaxNumBuffers)
 					numBuffers = mMaxNumBuffers;
 				theBufferSize = kHD720pYUVVFrameSize; 
@@ -1379,7 +1379,7 @@ bool IOVideoSampleDevice::AddInputStreams()
 			case kYUV422_1920x1080:
 			{
 				srcBuffer = mHD1080pYUVData; 
-				numBuffers = mHD1080pYUVSize / kHD1080pYUVVFrameSize;
+				numBuffers = (UInt32)(mHD1080pYUVSize / kHD1080pYUVVFrameSize);
 				if (numBuffers > mMaxNumBuffers)
 					numBuffers = mMaxNumBuffers;
 				theBufferSize = kHD1080pYUVVFrameSize; 
@@ -1527,14 +1527,14 @@ bool IOVideoSampleDevice::AddOutputStreams()
 		{
 			case kYUV422_720x480:
 			{
-				numBuffers = mYUVSize / kYUVVFrameSize;
+				numBuffers = (UInt32)(mYUVSize / kYUVVFrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
 				theBufferSize = kYUVVFrameSize; 
 			}
 				break;
             case kYUV422_720x486:
             {
-                numBuffers = mYUVSize / kFullNTSCYUVVFrameSize;
+                numBuffers = (UInt32)(mYUVSize / kFullNTSCYUVVFrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
                 theBufferSize = kFullNTSCYUVVFrameSize; 
                 
@@ -1542,7 +1542,7 @@ bool IOVideoSampleDevice::AddOutputStreams()
                 break;
             case kYUV422_720x576:
             {
-                numBuffers = mYUVSize / kPALYUVVFrameSize;
+                numBuffers = (UInt32)(mYUVSize / kPALYUVVFrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
                 theBufferSize = kPALYUVVFrameSize; 
                 
@@ -1550,7 +1550,7 @@ bool IOVideoSampleDevice::AddOutputStreams()
                 break;
 			case kYUV422_1280x720:
 			{
-				numBuffers = mHD720pYUVSize / kHD720pYUVVFrameSize;
+				numBuffers = (UInt32)(mHD720pYUVSize / kHD720pYUVVFrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
 				theBufferSize = kHD720pYUVVFrameSize; 
 				
@@ -1558,7 +1558,7 @@ bool IOVideoSampleDevice::AddOutputStreams()
 				break;
 			case kYUV422_1920x1080:
 			{
-				numBuffers = mHD1080pYUVSize / kHD1080pYUVVFrameSize;
+				numBuffers = (UInt32)(mHD1080pYUVSize / kHD1080pYUVVFrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
 				theBufferSize = kHD1080pYUVVFrameSize; 
 				
@@ -1566,14 +1566,14 @@ bool IOVideoSampleDevice::AddOutputStreams()
 				break;
 			case kYUV422_10_720x480:
 			{
-				numBuffers = mYUVSize / kYUVV_10_FrameSize;
+				numBuffers = (UInt32)(mYUVSize / kYUVV_10_FrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
 				theBufferSize = kYUVV_10_FrameSize; 
 			}
 				break;
             case kYUV422_10_720x486:
             {
-                numBuffers = mYUVSize / kFullNTSCYUVV_10_FrameSize;
+                numBuffers = (UInt32)(mYUVSize / kFullNTSCYUVV_10_FrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
                theBufferSize = kFullNTSCYUVV_10_FrameSize; 
                 
@@ -1581,7 +1581,7 @@ bool IOVideoSampleDevice::AddOutputStreams()
                 break;
             case kYUV422_10_720x576:
             {
-                numBuffers = mYUVSize / kPALYUVV_10_FrameSize;
+                numBuffers = (UInt32)(mYUVSize / kPALYUVV_10_FrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
                 theBufferSize = kPALYUVV_10_FrameSize; 
                 
@@ -1589,7 +1589,7 @@ bool IOVideoSampleDevice::AddOutputStreams()
                 break;
 			case kYUV422_10_1280x720:
 			{
-				numBuffers = mHD720pYUVSize / kHD720pYUVV_10_FrameSize;
+				numBuffers = (UInt32)(mHD720pYUVSize / kHD720pYUVV_10_FrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
 				theBufferSize = kHD720pYUVV_10_FrameSize; 
 				
@@ -1597,7 +1597,7 @@ bool IOVideoSampleDevice::AddOutputStreams()
 				break;
 			case kYUV422_10_1920x1080:
 			{
-				numBuffers = mHD1080pYUVSize / kHD1080pYUVV_10_FrameSize;
+				numBuffers = (UInt32)(mHD1080pYUVSize / kHD1080pYUVV_10_FrameSize);
                 numBuffers = min(numBuffers,kMaxOutputBuffers);
 				theBufferSize = kHD1080pYUVV_10_FrameSize; 
 				
@@ -1791,14 +1791,14 @@ bool IOVideoSampleDevice::ResetInputStreams()
 				case kYUV422_720x480:
 				{
 					srcBuffer = mYUVData;
-					numBuffers = mYUVSize / kYUVVFrameSize;
+					numBuffers = (UInt32)(mYUVSize / kYUVVFrameSize);
 					bufferSize = kYUVVFrameSize; 
 				}
 					break;
 				case kYUV422_1280x720:
 				{
 					srcBuffer = mHD720pYUVData;
-					numBuffers = mHD720pYUVSize / kHD720pYUVVFrameSize;
+					numBuffers = (UInt32)(mHD720pYUVSize / kHD720pYUVVFrameSize);
 					if (numBuffers > mMaxNumBuffers)
 						numBuffers = mMaxNumBuffers;
 					bufferSize = kHD720pYUVVFrameSize; 
@@ -1808,7 +1808,7 @@ bool IOVideoSampleDevice::ResetInputStreams()
 				case kYUV422_1920x1080:
 				{
 					srcBuffer = mHD1080pYUVData;
-					numBuffers = mHD1080pYUVSize / kHD1080pYUVVFrameSize;
+					numBuffers = (UInt32)(mHD1080pYUVSize / kHD1080pYUVVFrameSize);
 					if (numBuffers > mMaxNumBuffers)
 						numBuffers = mMaxNumBuffers;
 					bufferSize = kHD1080pYUVVFrameSize; 
@@ -1906,14 +1906,14 @@ bool IOVideoSampleDevice::ResetOutputStreams()
 			{
 				case kYUV422_720x480:
 				{
-					numBuffers = mYUVSize / kYUVVFrameSize;
+					numBuffers = (UInt32)(mYUVSize / kYUVVFrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
 					bufferSize = kYUVVFrameSize; 
 				}
 					break;
                 case kYUV422_720x486:
                 {
-					numBuffers = mYUVSize / kFullNTSCYUVVFrameSize;
+					numBuffers = (UInt32)(mYUVSize / kFullNTSCYUVVFrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
 					bufferSize = kFullNTSCYUVVFrameSize; 
                     
@@ -1921,7 +1921,7 @@ bool IOVideoSampleDevice::ResetOutputStreams()
                     break;
                 case kYUV422_720x576:
                 {
-					numBuffers = mYUVSize / kPALYUVVFrameSize;
+					numBuffers = (UInt32)(mYUVSize / kPALYUVVFrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
 					bufferSize = kPALYUVVFrameSize; 
                     
@@ -1929,7 +1929,7 @@ bool IOVideoSampleDevice::ResetOutputStreams()
                     break;
 				case kYUV422_1280x720:
 				{
-					numBuffers = mHD720pYUVSize / kHD720pYUVVFrameSize;
+					numBuffers = (UInt32)(mHD720pYUVSize / kHD720pYUVVFrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
 					bufferSize = kHD720pYUVVFrameSize; 
 					
@@ -1937,7 +1937,7 @@ bool IOVideoSampleDevice::ResetOutputStreams()
 					break;
 				case kYUV422_1920x1080:
 				{
-					numBuffers = mHD1080pYUVSize / kHD1080pYUVVFrameSize;
+					numBuffers = (UInt32)(mHD1080pYUVSize / kHD1080pYUVVFrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
 					bufferSize = kHD1080pYUVVFrameSize; 
 					
@@ -1945,14 +1945,14 @@ bool IOVideoSampleDevice::ResetOutputStreams()
 					break;
                 case kYUV422_10_720x480:
                 {
-                    numBuffers = mYUVSize / kYUVV_10_FrameSize;
+                    numBuffers = (UInt32)(mYUVSize / kYUVV_10_FrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
                    bufferSize = kYUVV_10_FrameSize; 
                 }
                     break;
                 case kYUV422_10_720x486:
                 {
-                    numBuffers = mYUVSize / kFullNTSCYUVV_10_FrameSize;
+                    numBuffers = (UInt32)(mYUVSize / kFullNTSCYUVV_10_FrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
                    bufferSize = kFullNTSCYUVV_10_FrameSize; 
                     
@@ -1960,7 +1960,7 @@ bool IOVideoSampleDevice::ResetOutputStreams()
                     break;
                 case kYUV422_10_720x576:
                 {
-                    numBuffers = mYUVSize / kPALYUVV_10_FrameSize;
+                    numBuffers = (UInt32)(mYUVSize / kPALYUVV_10_FrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
                     bufferSize = kPALYUVV_10_FrameSize; 
                     
@@ -1968,7 +1968,7 @@ bool IOVideoSampleDevice::ResetOutputStreams()
                     break;
                 case kYUV422_10_1280x720:
                 {
-                    numBuffers = mHD720pYUVSize / kHD720pYUVV_10_FrameSize;
+                    numBuffers = (UInt32)(mHD720pYUVSize / kHD720pYUVV_10_FrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
                     bufferSize = kHD720pYUVV_10_FrameSize; 
                     
@@ -1976,7 +1976,7 @@ bool IOVideoSampleDevice::ResetOutputStreams()
                     break;
                 case kYUV422_10_1920x1080:
                 {
-                    numBuffers = mHD1080pYUVSize / kHD1080pYUVV_10_FrameSize;
+                    numBuffers = (UInt32)(mHD1080pYUVSize / kHD1080pYUVV_10_FrameSize);
                     numBuffers = min(numBuffers,kMaxOutputBuffers);
                     bufferSize = kHD1080pYUVV_10_FrameSize; 
                     
