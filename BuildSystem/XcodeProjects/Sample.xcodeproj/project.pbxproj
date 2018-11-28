@@ -16,7 +16,76 @@
 		14C6D76E11AB20D700E54D26 /* IOVideoSampleDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F1EAF011A7375400B28A43 /* IOVideoSampleDevice.cpp */; };
 		14C6D76F11AB20D900E54D26 /* IOVideoSampleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F1EAF411A7375400B28A43 /* IOVideoSampleStream.cpp */; };
 		7206D01514633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */; };
+		BE69967F21AEE7CE006014B1 /* CMIODPASample.defs in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5D80E0741B7000C4D64 /* CMIODPASample.defs */; };
+		BE69968021AEE7CE006014B1 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
+		BE69968121AEE7CE006014B1 /* CMIODebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6709E703CE00413E85 /* CMIODebugPrintf.cpp */; };
+		BE69968221AEE7CE006014B1 /* CACFArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDAEB09E7037600413E85 /* CACFArray.cpp */; };
+		BE69968321AEE7CE006014B1 /* CACFDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDAEE09E7037600413E85 /* CACFDictionary.cpp */; };
+		BE69968421AEE7CE006014B1 /* CACFNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDAF409E7037600413E85 /* CACFNumber.cpp */; };
+		BE69968521AEE7CE006014B1 /* CACFPreferences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDAF809E7037600413E85 /* CACFPreferences.cpp */; };
+		BE69968621AEE7CE006014B1 /* CACFString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDAFC09E7037600413E85 /* CACFString.cpp */; };
+		BE69968721AEE7CE006014B1 /* CAMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB1F09E7037700413E85 /* CAMutex.cpp */; };
+		BE69968821AEE7CE006014B1 /* CAProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB2309E7037700413E85 /* CAProcess.cpp */; };
+		BE69968921AEE7CE006014B1 /* CAVolumeCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB3B09E7037700413E85 /* CAVolumeCurve.cpp */; };
+		BE69968A21AEE7CE006014B1 /* CMIO_DALA_System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14C85F730A262A72000ECD0B /* CMIO_DALA_System.cpp */; };
+		BE69968B21AEE7CE006014B1 /* CMIO_DP_Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A310A23A950007DDCD3 /* CMIO_DP_Object.cpp */; };
+		BE69968C21AEE7CE006014B1 /* CMIO_DP_PlugIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A330A23A950007DDCD3 /* CMIO_DP_PlugIn.cpp */; };
+		BE69968D21AEE7CE006014B1 /* CMIO_DP_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A200A23A950007DDCD3 /* CMIO_DP_Device.cpp */; };
+		BE69968E21AEE7CE006014B1 /* CMIO_DP_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A370A23A950007DDCD3 /* CMIO_DP_Stream.cpp */; };
+		BE69968F21AEE7CE006014B1 /* CMIO_DP_Control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A1E0A23A950007DDCD3 /* CMIO_DP_Control.cpp */; };
+		BE69969021AEE7CE006014B1 /* CMIO_DP_Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A1C0A23A950007DDCD3 /* CMIO_DP_Command.cpp */; };
+		BE69969121AEE7CE006014B1 /* CMIO_DP_DeviceCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A220A23A950007DDCD3 /* CMIO_DP_DeviceCommands.cpp */; };
+		BE69969221AEE7CE006014B1 /* CMIO_DP_DeviceSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A240A23A950007DDCD3 /* CMIO_DP_DeviceSettings.cpp */; };
+		BE69969321AEE7CE006014B1 /* CMIO_DP_HardwarePlugInInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A280A23A950007DDCD3 /* CMIO_DP_HardwarePlugInInterface.cpp */; };
+		BE69969421AEE7CE006014B1 /* CMIO_DP_UserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A3B0A23A950007DDCD3 /* CMIO_DP_UserInfo.cpp */; };
+		BE69969521AEE7CE006014B1 /* CMIO_DP_Property_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A3E0A23A97D007DDCD3 /* CMIO_DP_Property_Base.cpp */; };
+		BE69969621AEE7CE006014B1 /* CMIO_DP_Property_FormatList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A4A0A23A97D007DDCD3 /* CMIO_DP_Property_FormatList.cpp */; };
+		BE69969721AEE7CE006014B1 /* CAHostTimeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB1309E7037700413E85 /* CAHostTimeBase.cpp */; };
+		BE69969821AEE7CE006014B1 /* CMIO_DP_Property_Clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD29DC0A6D8AC70030D7C0 /* CMIO_DP_Property_Clock.cpp */; };
+		BE69969921AEE7CE006014B1 /* CACFMachPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDAF009E7037600413E85 /* CACFMachPort.cpp */; };
+		BE69969A21AEE7CE006014B1 /* CMIO_PTA_CFMachPortThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 143100430AC85F2E002F2E36 /* CMIO_PTA_CFMachPortThread.cpp */; };
+		BE69969B21AEE7CE006014B1 /* CMIO_DP_Property_SuspendedByUser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F5AC9D0BFC917500B292F9 /* CMIO_DP_Property_SuspendedByUser.cpp */; };
+		BE69969C21AEE7CE006014B1 /* CMIO_DP_Property_DeviceMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A460A23A97D007DDCD3 /* CMIO_DP_Property_DeviceMaster.cpp */; };
+		BE69969D21AEE7CE006014B1 /* CMIO_DP_Property_HogMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EC6FDA0C19FFD70013EED3 /* CMIO_DP_Property_HogMode.cpp */; };
+		BE69969E21AEE7CE006014B1 /* CMIO_DP_IOV_ControlDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14031AFD0DDC9E6E00E326EE /* CMIO_DP_IOV_ControlDictionary.cpp */; };
+		BE69969F21AEE7CE006014B1 /* CMIO_IOVA_Assistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14031B0E0DDC9FEA00E326EE /* CMIO_IOVA_Assistance.cpp */; };
+		BE6996A021AEE7CE006014B1 /* CMIO_DP_IOV_Control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1440CF1E0A7FC67900F2A20D /* CMIO_DP_IOV_Control.cpp */; };
+		BE6996A121AEE7CE006014B1 /* CMIO_DP_Property_ClientSyncDiscontinuity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A400A23A97D007DDCD3 /* CMIO_DP_Property_ClientSyncDiscontinuity.cpp */; };
+		BE6996A221AEE7CE006014B1 /* CMIO_DP_Property_SMPTETimeCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A520A23A97D007DDCD3 /* CMIO_DP_Property_SMPTETimeCallback.cpp */; };
+		BE6996A321AEE7CE006014B1 /* CMIO_DP_Property_NoData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A4C0A23A97D007DDCD3 /* CMIO_DP_Property_NoData.cpp */; };
+		BE6996A421AEE7CE006014B1 /* CMIO_DP_Property_EndOfData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A480A23A97D007DDCD3 /* CMIO_DP_Property_EndOfData.cpp */; };
+		BE6996A521AEE7CE006014B1 /* CMIO_DP_Property_OutputBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A4E0A23A97D007DDCD3 /* CMIO_DP_Property_OutputBuffers.cpp */; };
+		BE6996A721AEE7CE006014B1 /* CMIO_DP_Sample_PlugIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5C30E07410B000C4D64 /* CMIO_DP_Sample_PlugIn.cpp */; };
+		BE6996A821AEE7CE006014B1 /* CMIO_DP_Sample_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5C50E07410B000C4D64 /* CMIO_DP_Sample_Stream.cpp */; };
+		BE6996A921AEE7CE006014B1 /* CMIO_DP_Sample_Property_HogMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5C80E07410B000C4D64 /* CMIO_DP_Sample_Property_HogMode.cpp */; };
+		BE6996AA21AEE7CE006014B1 /* CMIO_DPA_Sample_ClientExtras.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5D50E0741B7000C4D64 /* CMIO_DPA_Sample_ClientExtras.cpp */; };
+		BE6996AB21AEE7CE006014B1 /* CMIO_SMPTETimeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4A4DB270E78A09700979942 /* CMIO_SMPTETimeBase.cpp */; };
+		BE6996AC21AEE7CE006014B1 /* CAPThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB2609E7037700413E85 /* CAPThread.cpp */; };
+		BE6996AD21AEE7CE006014B1 /* CAGuard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB0C09E7037600413E85 /* CAGuard.cpp */; };
+		BE6996AE21AEE7CE006014B1 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
+		BE6996AF21AEE7CE006014B1 /* CMIO_DP_ControlDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F1610C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp */; };
+		BE6996B021AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5DF0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Device.cpp */; };
+		BE6996B121AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5E10E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Frame.cpp */; };
+		BE6996B221AEE7CE006014B1 /* CMIO_DPA_Sample_Server_ClientStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5DD0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_ClientStream.cpp */; };
+		BE6996B321AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5E30E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.cpp */; };
+		BE6996B421AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F2810C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp */; };
+		BE6996B521AEE7CE006014B1 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497687E10F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp */; };
+		BE6996B621AEE7CE006014B1 /* CMIO_IOSA_Assistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AB16EB0AFF79F300FB0E7F /* CMIO_IOSA_Assistance.cpp */; };
+		BE6996B721AEE7CE006014B1 /* CACFDistributedNotification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E47C6D3811AC8CB1004DD1E7 /* CACFDistributedNotification.cpp */; };
+		BE6996B821AEE7CE006014B1 /* CMIO_PTA_NotificationPortThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 142D88CC0AC02FCC00285855 /* CMIO_PTA_NotificationPortThread.cpp */; };
+		BE6996B921AEE7CE006014B1 /* CMIO_IOKA_NotificationPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EE83800A257AF600095EDC /* CMIO_IOKA_NotificationPort.cpp */; };
+		BE6996BA21AEE7CE006014B1 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */; };
+		BE6996BB21AEE7CE006014B1 /* CMIO_SA_Assistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4E791E81610E61500C2316E /* CMIO_SA_Assistance.cpp */; };
+		BE6996BD21AEE7CE006014B1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1423170A0AB0CC8700467E80 /* CoreFoundation.framework */; };
+		BE6996BE21AEE7CE006014B1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47C6C9511AC8A29004DD1E7 /* CoreMedia.framework */; };
+		BE6996BF21AEE7CE006014B1 /* CoreMediaIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */; };
+		BE6996C021AEE7CE006014B1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EEB3960CD0434200ADEEEF /* CoreVideo.framework */; };
+		BE6996C121AEE7CE006014B1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1469AC5A0A22D6E9001B6AE0 /* IOKit.framework */; };
+		BE6996C221AEE7CE006014B1 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E4857F2510C8445C008FE5C2 /* libobjc.dylib */; };
+		BE6996C321AEE7CE006014B1 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E791EC1610E85700C2316E /* IOSurface.framework */; };
+		BE6996CB21AEE806006014B1 /* CMIO_DP_SampleVCam_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE69967821AEE763006014B1 /* CMIO_DP_SampleVCam_Device.cpp */; };
 		BE6996CE21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */; };
+		BE6996D021AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996CF21AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp */; };
 		E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
@@ -117,6 +186,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
+		BE6996C521AEE7CE006014B1 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.mig;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)/$(INPUT_FILE_BASE)Client.cpp",
+				"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)/$(INPUT_FILE_BASE)Client.h",
+			);
+			script = "# A custom build rule for the MIG .defs file is used due to MIG's lack of support C++'s scope resolution operator (::).\n# To work around that, the .defs use _SCOPE_ as a place holder and  this custom MIG build rule to processes the MIG output with the \"GenerateMIGOutput.pl\" script\n# which replaces the _SCOPE_ place holder as needed.\n\n# Create the MIG output directory if it doesn't exist\nmkdir -p \"${DERIVED_FILES_DIR}/${CURRENT_ARCH}\"\n\n# Change to ${DERIVED_FILES_DIR}/${CURRENT_ARCH} directory since the GenerateMIGOutput.pl script wants to be in the directory of the files it is processing\ncd \"${DERIVED_FILES_DIR}/${CURRENT_ARCH}\"\n\n# Create the MIG output (client and an unused server output since this build rule is for the client side)\nmig -sheader \"${INPUT_FILE_BASE}UnusedServer.h\"\t\\\n\t-server \"${INPUT_FILE_BASE}UnusedServer.cpp\"\t\\\n\t-header \"${INPUT_FILE_BASE}Client.h\"\t\t\t\\\n\t-user \"${INPUT_FILE_BASE}Client.cpp\"\t\t\t\\\n\t\"${INPUT_FILE_DIR}/${INPUT_FILE_BASE}.defs\"\n\n# Make sure GenerateMIGOutput.pl is executable, and execute it\nchmod 755 \"${SRCROOT}/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/GenerateMIGOutput.pl\"\n\"${SRCROOT}/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/GenerateMIGOutput.pl\" client \"${INPUT_FILE_BASE}\"";
+		};
 		E42AA58C0E073EEC000C4D64 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
@@ -148,6 +228,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 142050C511AB1CCE00460FC9;
 			remoteInfo = "Sample User Client";
+		};
+		BE69967C21AEE7CE006014B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEFCDA6A09E701B800413E85 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E42AA5960E073EFB000C4D64;
+			remoteInfo = "Sample Assistant";
 		};
 		E4C93A860E083107008CA4C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -285,7 +372,12 @@
 		7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Property_ScheduledOutputNotificationProc.cpp; sourceTree = "<group>"; };
 		7206D01414633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DP_Property_ScheduledOutputNotificationProc.h; sourceTree = "<group>"; };
 		BE69966621AEC9F7006014B1 /* IOUSBLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOUSBLog.h; sourceTree = "<group>"; };
+		BE69967721AEE763006014B1 /* CMIO_DP_SampleVCam_Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DP_SampleVCam_Device.h; sourceTree = "<group>"; };
+		BE69967821AEE763006014B1 /* CMIO_DP_SampleVCam_Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_SampleVCam_Device.cpp; sourceTree = "<group>"; };
+		BE6996C921AEE7CE006014B1 /* SampleVCam.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleVCam.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE6996CC21AEED0F006014B1 /* SampleVCam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SampleVCam-Info.plist"; sourceTree = "<group>"; };
 		BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Sample_PlugInInterface.cpp; sourceTree = "<group>"; };
+		BE6996CF21AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_SampleVCam_PlugInInterface.cpp; sourceTree = "<group>"; };
 		DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = /System/Library/Frameworks/CoreMediaIO.framework; sourceTree = "<absolute>"; };
 		DEFCDABE09E7037600413E85 /* AUOutputBL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputBL.cpp; sourceTree = "<group>"; };
 		DEFCDABF09E7037600413E85 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
@@ -450,6 +542,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6996BC21AEE7CE006014B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE6996BD21AEE7CE006014B1 /* CoreFoundation.framework in Frameworks */,
+				BE6996BE21AEE7CE006014B1 /* CoreMedia.framework in Frameworks */,
+				BE6996BF21AEE7CE006014B1 /* CoreMediaIO.framework in Frameworks */,
+				BE6996C021AEE7CE006014B1 /* CoreVideo.framework in Frameworks */,
+				BE6996C121AEE7CE006014B1 /* IOKit.framework in Frameworks */,
+				BE6996C221AEE7CE006014B1 /* libobjc.dylib in Frameworks */,
+				BE6996C321AEE7CE006014B1 /* IOSurface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +904,7 @@
 				E42AA5BB0E073EFB000C4D64 /* SampleAssistant */,
 				149D29D311AAFD5600DF1946 /* IOVideoSample.kext */,
 				142050C611AB1CCE00460FC9 /* IOVideoSampleUserClient.kext */,
+				BE6996C921AEE7CE006014B1 /* SampleVCam.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -937,17 +1044,21 @@
 		E42AA5BE0E07410B000C4D64 /* PlugIn */ = {
 			isa = PBXGroup;
 			children = (
-				E42AA5CA0E07410B000C4D64 /* Sample-Info.plist */,
-				E42AA5CB0E07410B000C4D64 /* Sample.exp */,
-				E42AA5C40E07410B000C4D64 /* CMIO_DP_Sample_PlugIn.h */,
-				E42AA5C30E07410B000C4D64 /* CMIO_DP_Sample_PlugIn.cpp */,
-				E42AA5C20E07410B000C4D64 /* CMIO_DP_Sample_Device.h */,
+				E42AA5C70E07410B000C4D64 /* Properties */,
+				E4857F1F10C8437F008FE5C2 /* CMIO_DP_Sample_ControlIDs.h */,
 				E42AA5C10E07410B000C4D64 /* CMIO_DP_Sample_Device.cpp */,
-				E42AA5C60E07410B000C4D64 /* CMIO_DP_Sample_Stream.h */,
+				E42AA5C20E07410B000C4D64 /* CMIO_DP_Sample_Device.h */,
+				E42AA5C30E07410B000C4D64 /* CMIO_DP_Sample_PlugIn.cpp */,
+				E42AA5C40E07410B000C4D64 /* CMIO_DP_Sample_PlugIn.h */,
 				BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */,
 				E42AA5C50E07410B000C4D64 /* CMIO_DP_Sample_Stream.cpp */,
-				E4857F1F10C8437F008FE5C2 /* CMIO_DP_Sample_ControlIDs.h */,
-				E42AA5C70E07410B000C4D64 /* Properties */,
+				E42AA5C60E07410B000C4D64 /* CMIO_DP_Sample_Stream.h */,
+				BE69967821AEE763006014B1 /* CMIO_DP_SampleVCam_Device.cpp */,
+				BE69967721AEE763006014B1 /* CMIO_DP_SampleVCam_Device.h */,
+				BE6996CF21AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp */,
+				E42AA5CA0E07410B000C4D64 /* Sample-Info.plist */,
+				E42AA5CB0E07410B000C4D64 /* Sample.exp */,
+				BE6996CC21AEED0F006014B1 /* SampleVCam-Info.plist */,
 			);
 			path = PlugIn;
 			sourceTree = "<group>";
@@ -1073,6 +1184,26 @@
 			productReference = 149D29D311AAFD5600DF1946 /* IOVideoSample.kext */;
 			productType = "com.apple.product-type.kernel-extension.iokit";
 		};
+		BE69967A21AEE7CE006014B1 /* Sample VCam Plugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE6996C621AEE7CE006014B1 /* Build configuration list for PBXNativeTarget "Sample VCam Plugin" */;
+			buildPhases = (
+				BE69967D21AEE7CE006014B1 /* Resources */,
+				BE69967E21AEE7CE006014B1 /* Sources */,
+				BE6996BC21AEE7CE006014B1 /* Frameworks */,
+				BE6996C421AEE7CE006014B1 /* Make FCP Twin */,
+			);
+			buildRules = (
+				BE6996C521AEE7CE006014B1 /* PBXBuildRule */,
+			);
+			dependencies = (
+				BE69967B21AEE7CE006014B1 /* PBXTargetDependency */,
+			);
+			name = "Sample VCam Plugin";
+			productName = IIDC;
+			productReference = BE6996C921AEE7CE006014B1 /* SampleVCam.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
 		E42AA5540E073EEC000C4D64 /* Sample Plugin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E42AA58D0E073EEC000C4D64 /* Build configuration list for PBXNativeTarget "Sample Plugin" */;
@@ -1139,6 +1270,7 @@
 				E42AA5960E073EFB000C4D64 /* Sample Assistant */,
 				149D29D211AAFD5600DF1946 /* Sample Kernel Extension */,
 				142050C511AB1CCE00460FC9 /* Sample User Client */,
+				BE69967A21AEE7CE006014B1 /* Sample VCam Plugin */,
 			);
 		};
 /* End PBXProject section */
@@ -1158,6 +1290,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE69967D21AEE7CE006014B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E42AA5570E073EEC000C4D64 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1168,6 +1307,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		BE6996C421AEE7CE006014B1 /* Make FCP Twin */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Make FCP Twin";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Copy plug-in to path for FCP (which uses embedded frameworks)\necho \"Copying plug-in to FCP's 3rd Party Plug-In path\"\npushd $SYMROOT/$CONFIGURATIONPREFIX$CONFIGURATION/root/$INSTALL_PATH\nmkdir -p ../FCP-DAL\nrm -Rf \"../FCP-DAL/$PRODUCT_NAME.plugin\"\nditto \"$PRODUCT_NAME.plugin/\" \"../FCP-DAL/$PRODUCT_NAME.plugin/\"\n\n# Remove the assistant (the \"system\" one should be used)\necho \"Removing Assistant\"\ncd ../FCP-DAL/\nrm -Rf \"$PRODUCT_NAME.plugin/Contents/Resources/\"*Assistant\n\n# Fix rpaths\necho \"Fixing rpaths\"\ninstall_name_tool -change /System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia @rpath/CoreMedia.framework/Versions/A/CoreMedia \"$PRODUCT_NAME.plugin/Contents/MacOS/$PRODUCT_NAME\"\ninstall_name_tool -change /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/CoreMediaIO @rpath/CoreMediaIO.framework/Versions/A/CoreMediaIO \"$PRODUCT_NAME.plugin/Contents/MacOS/$PRODUCT_NAME\"\necho \"otool -L output:\"\notool -L \"$PRODUCT_NAME.plugin/Contents/MacOS/$PRODUCT_NAME\"\npopd\n";
+		};
 		DE322FA91421A9F100B8490C /* Make FCP Twin */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1198,6 +1351,75 @@
 			files = (
 				14C6D76E11AB20D700E54D26 /* IOVideoSampleDevice.cpp in Sources */,
 				14C6D76F11AB20D900E54D26 /* IOVideoSampleStream.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE69967E21AEE7CE006014B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE69967F21AEE7CE006014B1 /* CMIODPASample.defs in Sources */,
+				BE6996CB21AEE806006014B1 /* CMIO_DP_SampleVCam_Device.cpp in Sources */,
+				BE69968021AEE7CE006014B1 /* CMIODebugMacros.cpp in Sources */,
+				BE69968121AEE7CE006014B1 /* CMIODebugPrintf.cpp in Sources */,
+				BE69968221AEE7CE006014B1 /* CACFArray.cpp in Sources */,
+				BE69968321AEE7CE006014B1 /* CACFDictionary.cpp in Sources */,
+				BE69968421AEE7CE006014B1 /* CACFNumber.cpp in Sources */,
+				BE69968521AEE7CE006014B1 /* CACFPreferences.cpp in Sources */,
+				BE69968621AEE7CE006014B1 /* CACFString.cpp in Sources */,
+				BE6996D021AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp in Sources */,
+				BE69968721AEE7CE006014B1 /* CAMutex.cpp in Sources */,
+				BE69968821AEE7CE006014B1 /* CAProcess.cpp in Sources */,
+				BE69968921AEE7CE006014B1 /* CAVolumeCurve.cpp in Sources */,
+				BE69968A21AEE7CE006014B1 /* CMIO_DALA_System.cpp in Sources */,
+				BE69968B21AEE7CE006014B1 /* CMIO_DP_Object.cpp in Sources */,
+				BE69968C21AEE7CE006014B1 /* CMIO_DP_PlugIn.cpp in Sources */,
+				BE69968D21AEE7CE006014B1 /* CMIO_DP_Device.cpp in Sources */,
+				BE69968E21AEE7CE006014B1 /* CMIO_DP_Stream.cpp in Sources */,
+				BE69968F21AEE7CE006014B1 /* CMIO_DP_Control.cpp in Sources */,
+				BE69969021AEE7CE006014B1 /* CMIO_DP_Command.cpp in Sources */,
+				BE69969121AEE7CE006014B1 /* CMIO_DP_DeviceCommands.cpp in Sources */,
+				BE69969221AEE7CE006014B1 /* CMIO_DP_DeviceSettings.cpp in Sources */,
+				BE69969321AEE7CE006014B1 /* CMIO_DP_HardwarePlugInInterface.cpp in Sources */,
+				BE69969421AEE7CE006014B1 /* CMIO_DP_UserInfo.cpp in Sources */,
+				BE69969521AEE7CE006014B1 /* CMIO_DP_Property_Base.cpp in Sources */,
+				BE69969621AEE7CE006014B1 /* CMIO_DP_Property_FormatList.cpp in Sources */,
+				BE69969721AEE7CE006014B1 /* CAHostTimeBase.cpp in Sources */,
+				BE69969821AEE7CE006014B1 /* CMIO_DP_Property_Clock.cpp in Sources */,
+				BE69969921AEE7CE006014B1 /* CACFMachPort.cpp in Sources */,
+				BE69969A21AEE7CE006014B1 /* CMIO_PTA_CFMachPortThread.cpp in Sources */,
+				BE69969B21AEE7CE006014B1 /* CMIO_DP_Property_SuspendedByUser.cpp in Sources */,
+				BE69969C21AEE7CE006014B1 /* CMIO_DP_Property_DeviceMaster.cpp in Sources */,
+				BE69969D21AEE7CE006014B1 /* CMIO_DP_Property_HogMode.cpp in Sources */,
+				BE69969E21AEE7CE006014B1 /* CMIO_DP_IOV_ControlDictionary.cpp in Sources */,
+				BE69969F21AEE7CE006014B1 /* CMIO_IOVA_Assistance.cpp in Sources */,
+				BE6996A021AEE7CE006014B1 /* CMIO_DP_IOV_Control.cpp in Sources */,
+				BE6996A121AEE7CE006014B1 /* CMIO_DP_Property_ClientSyncDiscontinuity.cpp in Sources */,
+				BE6996A221AEE7CE006014B1 /* CMIO_DP_Property_SMPTETimeCallback.cpp in Sources */,
+				BE6996A321AEE7CE006014B1 /* CMIO_DP_Property_NoData.cpp in Sources */,
+				BE6996A421AEE7CE006014B1 /* CMIO_DP_Property_EndOfData.cpp in Sources */,
+				BE6996A521AEE7CE006014B1 /* CMIO_DP_Property_OutputBuffers.cpp in Sources */,
+				BE6996A721AEE7CE006014B1 /* CMIO_DP_Sample_PlugIn.cpp in Sources */,
+				BE6996A821AEE7CE006014B1 /* CMIO_DP_Sample_Stream.cpp in Sources */,
+				BE6996A921AEE7CE006014B1 /* CMIO_DP_Sample_Property_HogMode.cpp in Sources */,
+				BE6996AA21AEE7CE006014B1 /* CMIO_DPA_Sample_ClientExtras.cpp in Sources */,
+				BE6996AB21AEE7CE006014B1 /* CMIO_SMPTETimeBase.cpp in Sources */,
+				BE6996AC21AEE7CE006014B1 /* CAPThread.cpp in Sources */,
+				BE6996AD21AEE7CE006014B1 /* CAGuard.cpp in Sources */,
+				BE6996AE21AEE7CE006014B1 /* CMIO_DP_Property_Deck.cpp in Sources */,
+				BE6996AF21AEE7CE006014B1 /* CMIO_DP_ControlDictionary.cpp in Sources */,
+				BE6996B021AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Device.cpp in Sources */,
+				BE6996B121AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Frame.cpp in Sources */,
+				BE6996B221AEE7CE006014B1 /* CMIO_DPA_Sample_Server_ClientStream.cpp in Sources */,
+				BE6996B321AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Stream.cpp in Sources */,
+				BE6996B421AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */,
+				BE6996B521AEE7CE006014B1 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */,
+				BE6996B621AEE7CE006014B1 /* CMIO_IOSA_Assistance.cpp in Sources */,
+				BE6996B721AEE7CE006014B1 /* CACFDistributedNotification.cpp in Sources */,
+				BE6996B821AEE7CE006014B1 /* CMIO_PTA_NotificationPortThread.cpp in Sources */,
+				BE6996B921AEE7CE006014B1 /* CMIO_IOKA_NotificationPort.cpp in Sources */,
+				BE6996BA21AEE7CE006014B1 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp in Sources */,
+				BE6996BB21AEE7CE006014B1 /* CMIO_SA_Assistance.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1312,6 +1534,11 @@
 			isa = PBXTargetDependency;
 			target = 142050C511AB1CCE00460FC9 /* Sample User Client */;
 			targetProxy = 1411AB7811AC61D100704426 /* PBXContainerItemProxy */;
+		};
+		BE69967B21AEE7CE006014B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E42AA5960E073EFB000C4D64 /* Sample Assistant */;
+			targetProxy = BE69967C21AEE7CE006014B1 /* PBXContainerItemProxy */;
 		};
 		E4C93A870E083107008CA4C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1615,6 +1842,70 @@
 			};
 			name = Debug;
 		};
+		BE6996C721AEE7CE006014B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXPORTED_SYMBOLS_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/PlugIn/Sample.exp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				HEADER_SEARCH_PATHS = (
+					"$(value)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"";
+				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(DSTROOT)/System/Library/Frameworks/Kernel.framework/Versions/A/PrivateHeaders\"";
+				INFOPLIST_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/PlugIn/SampleVCam-Info.plist";
+				INSTALL_MODE_FLAG = "u+w,og-w,a+rX";
+				INSTALL_PATH = "/Library/CoreMediaIO/Plug-Ins/DAL";
+				OTHER_CFLAGS = (
+					"$(value)",
+					"-DkCMIOModuleKey=\\\"CMIO_DAL_PlugIn_Sample.Debug\\\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.cmio.DAL.SampleVCam${CMIO_BUNDLE_ID_POSTFIX}";
+				PRODUCT_NAME = SampleVCam;
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Debug;
+		};
+		BE6996C821AEE7CE006014B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXPORTED_SYMBOLS_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/PlugIn/Sample.exp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				HEADER_SEARCH_PATHS = (
+					"$(value)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"";
+				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(DSTROOT)/System/Library/Frameworks/Kernel.framework/Versions/A/PrivateHeaders\"";
+				INFOPLIST_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/PlugIn/SampleVCam-Info.plist";
+				INSTALL_MODE_FLAG = "u+w,og-w,a+rX";
+				INSTALL_PATH = "/Library/CoreMediaIO/Plug-Ins/DAL";
+				OTHER_CFLAGS = (
+					"$(value)",
+					"-DkCMIOModuleKey=\\\"CMIO_DAL_PlugIn_Sample.Debug\\\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.cmio.DAL.SampleVCam${CMIO_BUNDLE_ID_POSTFIX}";
+				PRODUCT_NAME = SampleVCam;
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1632,6 +1923,15 @@
 			buildConfigurations = (
 				149D29D511AAFD5700DF1946 /* Debug */,
 				14350708147319C300D80B41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BE6996C621AEE7CE006014B1 /* Build configuration list for PBXNativeTarget "Sample VCam Plugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE6996C721AEE7CE006014B1 /* Debug */,
+				BE6996C821AEE7CE006014B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
