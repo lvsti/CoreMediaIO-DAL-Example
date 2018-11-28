@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.apple.cmio.driver.Sample</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -28,10 +28,10 @@
 			<string>IOVideoSampleDevice</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
-			<key>IOUserClientClass</key>
-			<string>IOVideoDeviceUserClient</string>
 			<key>IOResourceMatch</key>
 			<string>IOBSD</string>
+			<key>IOUserClientClass</key>
+			<string>IOVideoDeviceUserClient</string>
 		</dict>
 	</dict>
 	<key>OSBundleLibraries</key>

@@ -1113,7 +1113,7 @@
 		DEFCDA6A09E701B800413E85 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = DEFCDA6B09E701B800413E85 /* Build configuration list for PBXProject "Sample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1319,11 +1319,13 @@
 		142050C811AB1CCF00460FC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/KernelExtension/SampleUserClient-Info.plist";
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/IOVideoSample.kext/Contents/PlugIns";
 				MODULE_NAME = com.apple.cmio.UserClient.Sample;
 				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.cmio.driver.SampleUserClient;
 				PRODUCT_NAME = IOVideoSampleUserClient;
 				WRAPPER_EXTENSION = kext;
 			};
@@ -1333,14 +1335,37 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14E09CAB113D8F640080AF21 /* CMIOSampleRelease.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATIONPREFIX = "";
 				"CONFIGURATIONPREFIX[sdk=macosx10.7]" = "Lion-";
 				"CONFIGURATIONPREFIX[sdk=macosx10.8]" = "MountainLion-";
 				DEAD_CODE_STRIPPING = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/SamplePrefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CFLAGS = (
 					"$(CMIO_SAMPLE_OTHER_CFLAGS)",
@@ -1353,6 +1378,7 @@
 		14350706147319C300D80B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				EXPORTED_SYMBOLS_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/PlugIn/Sample.exp";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1375,6 +1401,7 @@
 					"$(value)",
 					"-DkCMIOModuleKey=\\\"CMIO_DAL_PlugIn_Sample.Debug\\\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.cmio.DAL.Sample${CMIO_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = Sample;
 				WRAPPER_EXTENSION = plugin;
 			};
@@ -1383,6 +1410,7 @@
 		14350707147319C300D80B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(value)",
@@ -1406,11 +1434,11 @@
 		14350708147319C300D80B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/KernelExtension/SampleDriver-Info.plist";
-				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.apple.cmio.driver.Sample;
 				MODULE_VERSION = 1.0.0d1;
 				OTHER_LDFLAGS = (
@@ -1427,6 +1455,7 @@
 					hd1080yuv_data,
 					"$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/KernelExtension/ntsc2Vuy1920x1080Data.yuv",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.cmio.driver.Sample;
 				PRODUCT_NAME = IOVideoSample;
 				WRAPPER_EXTENSION = kext;
 			};
@@ -1435,11 +1464,13 @@
 		14350709147319C300D80B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/KernelExtension/SampleUserClient-Info.plist";
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/IOVideoSample.kext/Contents/PlugIns";
 				MODULE_NAME = com.apple.cmio.UserClient.Sample;
 				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.cmio.driver.SampleUserClient;
 				PRODUCT_NAME = IOVideoSampleUserClient;
 				WRAPPER_EXTENSION = kext;
 			};
@@ -1448,11 +1479,11 @@
 		149D29D511AAFD5700DF1946 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/KernelExtension/SampleDriver-Info.plist";
-				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.apple.cmio.driver.Sample;
 				MODULE_VERSION = 1.0.0d1;
 				OTHER_LDFLAGS = (
@@ -1469,6 +1500,7 @@
 					hd1080yuv_data,
 					"$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/KernelExtension/ntsc2Vuy1920x1080Data.yuv",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.cmio.driver.Sample;
 				PRODUCT_NAME = IOVideoSample;
 				WRAPPER_EXTENSION = kext;
 			};
@@ -1478,15 +1510,40 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14E09CAA113D8F640080AF21 /* CMIOSampleDebug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATIONPREFIX = "";
 				"CONFIGURATIONPREFIX[sdk=macosx10.7]" = "Lion-";
 				"CONFIGURATIONPREFIX[sdk=macosx10.8]" = "MountainLion-";
 				DEAD_CODE_STRIPPING = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/SamplePrefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"$(CMIO_SAMPLE_OTHER_CFLAGS)",
 					"-DABSOLUTETIME_SCALAR_TYPE",
@@ -1500,6 +1557,7 @@
 		14B07DC80E71E00300B41184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				EXPORTED_SYMBOLS_FILE = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/PlugIn/Sample.exp";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1522,6 +1580,7 @@
 					"$(value)",
 					"-DkCMIOModuleKey=\\\"CMIO_DAL_PlugIn_Sample.Debug\\\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.cmio.DAL.Sample${CMIO_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = Sample;
 				WRAPPER_EXTENSION = plugin;
 			};
@@ -1530,6 +1589,7 @@
 		14B07DC90E71E00300B41184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(value)",

@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.apple.cmio.DAL.Sample${CMIO_BUNDLE_ID_POSTFIX}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -34,16 +34,16 @@
 			<string>E1E3EB8E-3D0F-49C9-8924-A8A40E1E1CAE</string>
 		</array>
 	</dict>
+	<key>CMIOHardwareAssistantServiceNames</key>
+	<array>
+		<string>com.apple.cmio.DPA.Sample</string>
+	</array>
 	<key>NoCMIOHardwarePlugInLazyLoadingInfo</key>
 	<array>
 		<dict>
 			<key>IOProviderClass</key>
 			<string>IOVideoSampleDevice</string>
 		</dict>
-	</array>
-	<key>CMIOHardwareAssistantServiceNames</key>
-	<array>
-		<string>com.apple.cmio.DPA.Sample</string>
 	</array>
 </dict>
 </plist>
