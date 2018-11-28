@@ -1333,6 +1333,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14E09CAB113D8F640080AF21 /* CMIOSampleRelease.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CONFIGURATIONPREFIX = "";
 				"CONFIGURATIONPREFIX[sdk=macosx10.7]" = "Lion-";
 				"CONFIGURATIONPREFIX[sdk=macosx10.8]" = "MountainLion-";
@@ -1340,12 +1341,12 @@
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/SamplePrefix.h";
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CFLAGS = (
 					"$(CMIO_SAMPLE_OTHER_CFLAGS)",
 					"-DABSOLUTETIME_SCALAR_TYPE",
 				);
-				SDKROOT = "";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1382,8 +1383,6 @@
 		14350707147319C300D80B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"ARCHS[sdk=macosx10.7]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(value)",
@@ -1407,8 +1406,6 @@
 		14350708147319C300D80B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"ARCHS[sdk=macosx10.7]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
@@ -1451,8 +1448,6 @@
 		149D29D511AAFD5700DF1946 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"ARCHS[sdk=macosx10.7]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
@@ -1483,6 +1478,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14E09CAA113D8F640080AF21 /* CMIOSampleDebug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CONFIGURATIONPREFIX = "";
 				"CONFIGURATIONPREFIX[sdk=macosx10.7]" = "Lion-";
 				"CONFIGURATIONPREFIX[sdk=macosx10.8]" = "MountainLion-";
@@ -1490,14 +1486,14 @@
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../../Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/SamplePrefix.h";
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CFLAGS = (
 					"$(CMIO_SAMPLE_OTHER_CFLAGS)",
 					"-DABSOLUTETIME_SCALAR_TYPE",
 					"-DDEBUG",
 					"-DDEBUG_LEVEL=1",
 				);
-				SDKROOT = "";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1534,8 +1530,6 @@
 		14B07DC90E71E00300B41184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"ARCHS[sdk=macosx10.7]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(value)",
