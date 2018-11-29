@@ -86,6 +86,8 @@
 		BE6996CB21AEE806006014B1 /* CMIO_DP_SampleVCam_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE69967821AEE763006014B1 /* CMIO_DP_SampleVCam_Device.cpp */; };
 		BE6996CE21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */; };
 		BE6996D021AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996CF21AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp */; };
+		BE6996D521AFE6D8006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996D221AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp */; };
+		BE6996D921AFEB75006014B1 /* CMIO_DP_Sample_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5C10E07410B000C4D64 /* CMIO_DP_Sample_Device.cpp */; };
 		E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
@@ -378,6 +380,8 @@
 		BE6996CC21AEED0F006014B1 /* SampleVCam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SampleVCam-Info.plist"; sourceTree = "<group>"; };
 		BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Sample_PlugInInterface.cpp; sourceTree = "<group>"; };
 		BE6996CF21AEF0D5006014B1 /* CMIO_DP_SampleVCam_PlugInInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_SampleVCam_PlugInInterface.cpp; sourceTree = "<group>"; };
+		BE6996D221AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Sample_IOBackedDevice.cpp; sourceTree = "<group>"; };
+		BE6996D321AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DP_Sample_IOBackedDevice.h; sourceTree = "<group>"; };
 		DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = /System/Library/Frameworks/CoreMediaIO.framework; sourceTree = "<absolute>"; };
 		DEFCDABE09E7037600413E85 /* AUOutputBL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputBL.cpp; sourceTree = "<group>"; };
 		DEFCDABF09E7037600413E85 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
@@ -1048,6 +1052,8 @@
 				E4857F1F10C8437F008FE5C2 /* CMIO_DP_Sample_ControlIDs.h */,
 				E42AA5C10E07410B000C4D64 /* CMIO_DP_Sample_Device.cpp */,
 				E42AA5C20E07410B000C4D64 /* CMIO_DP_Sample_Device.h */,
+				BE6996D221AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp */,
+				BE6996D321AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.h */,
 				E42AA5C30E07410B000C4D64 /* CMIO_DP_Sample_PlugIn.cpp */,
 				E42AA5C40E07410B000C4D64 /* CMIO_DP_Sample_PlugIn.h */,
 				BE6996CD21AEEE66006014B1 /* CMIO_DP_Sample_PlugInInterface.cpp */,
@@ -1394,6 +1400,7 @@
 				BE69969E21AEE7CE006014B1 /* CMIO_DP_IOV_ControlDictionary.cpp in Sources */,
 				BE69969F21AEE7CE006014B1 /* CMIO_IOVA_Assistance.cpp in Sources */,
 				BE6996A021AEE7CE006014B1 /* CMIO_DP_IOV_Control.cpp in Sources */,
+				BE6996D921AFEB75006014B1 /* CMIO_DP_Sample_Device.cpp in Sources */,
 				BE6996A121AEE7CE006014B1 /* CMIO_DP_Property_ClientSyncDiscontinuity.cpp in Sources */,
 				BE6996A221AEE7CE006014B1 /* CMIO_DP_Property_SMPTETimeCallback.cpp in Sources */,
 				BE6996A321AEE7CE006014B1 /* CMIO_DP_Property_NoData.cpp in Sources */,
@@ -1428,6 +1435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C93A890E083DA6008CA4C5 /* CMIODPASample.defs in Sources */,
+				BE6996D521AFE6D8006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp in Sources */,
 				E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */,
 				E42AA55B0E073EEC000C4D64 /* CMIODebugPrintf.cpp in Sources */,
 				E42AA55C0E073EEC000C4D64 /* CACFArray.cpp in Sources */,
