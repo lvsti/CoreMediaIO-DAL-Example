@@ -64,11 +64,8 @@
 		BE6996AD21AEE7CE006014B1 /* CAGuard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB0C09E7037600413E85 /* CAGuard.cpp */; };
 		BE6996AE21AEE7CE006014B1 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		BE6996AF21AEE7CE006014B1 /* CMIO_DP_ControlDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F1610C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp */; };
-		BE6996B021AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5DF0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Device.cpp */; };
 		BE6996B121AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5E10E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Frame.cpp */; };
 		BE6996B221AEE7CE006014B1 /* CMIO_DPA_Sample_Server_ClientStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5DD0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_ClientStream.cpp */; };
-		BE6996B321AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5E30E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.cpp */; };
-		BE6996B421AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F2810C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp */; };
 		BE6996B521AEE7CE006014B1 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497687E10F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp */; };
 		BE6996B621AEE7CE006014B1 /* CMIO_IOSA_Assistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AB16EB0AFF79F300FB0E7F /* CMIO_IOSA_Assistance.cpp */; };
 		BE6996B721AEE7CE006014B1 /* CACFDistributedNotification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E47C6D3811AC8CB1004DD1E7 /* CACFDistributedNotification.cpp */; };
@@ -89,6 +86,7 @@
 		BE6996D921AFEB75006014B1 /* CMIO_DP_Sample_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5C10E07410B000C4D64 /* CMIO_DP_Sample_Device.cpp */; };
 		BE6996DA21AFEC12006014B1 /* CMIO_DP_Sample_VirtualDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996D721AFEB68006014B1 /* CMIO_DP_Sample_VirtualDevice.cpp */; };
 		BE6996E021AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996DE21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.cpp */; };
+		BE6996E121B000ED006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996DC21AFF59B006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.cpp */; };
 		E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
@@ -166,15 +164,12 @@
 		E47C6CC311AC8A35004DD1E7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47C6C9511AC8A29004DD1E7 /* CoreMedia.framework */; };
 		E47C6D1A11AC8AB9004DD1E7 /* CMIO_DP_Property_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B94A3E0A23A97D007DDCD3 /* CMIO_DP_Property_Base.cpp */; };
 		E47C6D2111AC8B1C004DD1E7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47C6C9511AC8A29004DD1E7 /* CoreMedia.framework */; };
-		E47C6D2911AC8B84004DD1E7 /* CMIO_DPA_Sample_Server_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5E30E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.cpp */; };
 		E47C6D2C11AC8BCC004DD1E7 /* CMIO_DPA_Sample_Server_ClientStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5DD0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_ClientStream.cpp */; };
-		E47C6D2D11AC8BFC004DD1E7 /* CMIO_DPA_Sample_Server_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5DF0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Device.cpp */; };
 		E47C6D2E11AC8BFC004DD1E7 /* CMIO_DPA_Sample_Server_Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5E10E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Frame.cpp */; };
 		E47C6D3311AC8C47004DD1E7 /* CMIO_IOSA_Assistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AB16EB0AFF79F300FB0E7F /* CMIO_IOSA_Assistance.cpp */; };
 		E47C6D3A11AC8CB1004DD1E7 /* CACFDistributedNotification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E47C6D3811AC8CB1004DD1E7 /* CACFDistributedNotification.cpp */; };
 		E4857F1810C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F1610C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp */; };
 		E4857F1910C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F1610C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp */; };
-		E4857F2A10C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F2810C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp */; };
 		E4857F2B10C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4857F2810C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp */; };
 		E497688010F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497687E10F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp */; };
 		E497688110F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497687E10F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp */; };
@@ -383,6 +378,8 @@
 		BE6996D321AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DP_Sample_IOBackedDevice.h; sourceTree = "<group>"; };
 		BE6996D621AFEB68006014B1 /* CMIO_DP_Sample_VirtualDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DP_Sample_VirtualDevice.h; sourceTree = "<group>"; };
 		BE6996D721AFEB68006014B1 /* CMIO_DP_Sample_VirtualDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DP_Sample_VirtualDevice.cpp; sourceTree = "<group>"; };
+		BE6996DB21AFF59A006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_IOBackedStream.h; sourceTree = "<group>"; };
+		BE6996DC21AFF59B006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_IOBackedStream.cpp; sourceTree = "<group>"; };
 		BE6996DE21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_IOBackedFrame.cpp; sourceTree = "<group>"; };
 		BE6996DF21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_IOBackedFrame.h; sourceTree = "<group>"; };
 		DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = /System/Library/Frameworks/CoreMediaIO.framework; sourceTree = "<absolute>"; };
@@ -1128,6 +1125,8 @@
 				E42AA5DF0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Device.cpp */,
 				E42AA5E40E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.h */,
 				E42AA5E30E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.cpp */,
+				BE6996DC21AFF59B006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.cpp */,
+				BE6996DB21AFF59A006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.h */,
 				E42AA5DE0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_ClientStream.h */,
 				E42AA5DD0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_ClientStream.cpp */,
 				BE6996DE21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.cpp */,
@@ -1419,11 +1418,8 @@
 				BE6996AD21AEE7CE006014B1 /* CAGuard.cpp in Sources */,
 				BE6996AE21AEE7CE006014B1 /* CMIO_DP_Property_Deck.cpp in Sources */,
 				BE6996AF21AEE7CE006014B1 /* CMIO_DP_ControlDictionary.cpp in Sources */,
-				BE6996B021AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Device.cpp in Sources */,
 				BE6996B121AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Frame.cpp in Sources */,
 				BE6996B221AEE7CE006014B1 /* CMIO_DPA_Sample_Server_ClientStream.cpp in Sources */,
-				BE6996B321AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Stream.cpp in Sources */,
-				BE6996B421AEE7CE006014B1 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */,
 				BE6996B521AEE7CE006014B1 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */,
 				BE6996B621AEE7CE006014B1 /* CMIO_IOSA_Assistance.cpp in Sources */,
 				BE6996B721AEE7CE006014B1 /* CACFDistributedNotification.cpp in Sources */,
@@ -1490,11 +1486,8 @@
 				E45333140E830B2F0049A56A /* CAGuard.cpp in Sources */,
 				E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */,
 				E4857F1810C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp in Sources */,
-				E47C6D2D11AC8BFC004DD1E7 /* CMIO_DPA_Sample_Server_Device.cpp in Sources */,
 				E47C6D2E11AC8BFC004DD1E7 /* CMIO_DPA_Sample_Server_Frame.cpp in Sources */,
 				E47C6D2C11AC8BCC004DD1E7 /* CMIO_DPA_Sample_Server_ClientStream.cpp in Sources */,
-				E47C6D2911AC8B84004DD1E7 /* CMIO_DPA_Sample_Server_Stream.cpp in Sources */,
-				E4857F2A10C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */,
 				E497688010F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */,
 				E47C6D3311AC8C47004DD1E7 /* CMIO_IOSA_Assistance.cpp in Sources */,
 				E47C6D3A11AC8CB1004DD1E7 /* CACFDistributedNotification.cpp in Sources */,
@@ -1513,6 +1506,7 @@
 				E42AA5990E073EFB000C4D64 /* CMIO_IOKA_NotificationPort.cpp in Sources */,
 				E42AA59A0E073EFB000C4D64 /* CMIODebugMacros.cpp in Sources */,
 				E42AA59B0E073EFB000C4D64 /* CACFDictionary.cpp in Sources */,
+				BE6996E121B000ED006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.cpp in Sources */,
 				E42AA59C0E073EFB000C4D64 /* CACFNumber.cpp in Sources */,
 				E42AA59D0E073EFB000C4D64 /* CACFString.cpp in Sources */,
 				E42AA59E0E073EFB000C4D64 /* CAMutex.cpp in Sources */,
