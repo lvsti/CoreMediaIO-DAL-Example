@@ -384,6 +384,7 @@
 		BE6996DE21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_IOBackedFrame.cpp; sourceTree = "<group>"; };
 		BE6996DF21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_IOBackedFrame.h; sourceTree = "<group>"; };
 		BE6996E221B042EF006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_MIGInterface.cpp; sourceTree = "<group>"; };
+		BE6996E721B18219006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_MIGInterface.h; sourceTree = "<group>"; };
 		DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = /System/Library/Frameworks/CoreMediaIO.framework; sourceTree = "<absolute>"; };
 		DEFCDABE09E7037600413E85 /* AUOutputBL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputBL.cpp; sourceTree = "<group>"; };
 		DEFCDABF09E7037600413E85 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
@@ -1112,10 +1113,11 @@
 		E42AA5DA0E0741B7000C4D64 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				E42AA5E70E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Common.h */,
-				E42AA5E60E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Assistant.h */,
 				E42AA5E50E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Assistant.cpp */,
+				E42AA5E60E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Assistant.h */,
+				E42AA5E70E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Common.h */,
 				BE6996E221B042EF006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.cpp */,
+				BE6996E721B18219006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.h */,
 				E42AA5DC0E0741B7000C4D64 /* Device */,
 			);
 			path = Server;
