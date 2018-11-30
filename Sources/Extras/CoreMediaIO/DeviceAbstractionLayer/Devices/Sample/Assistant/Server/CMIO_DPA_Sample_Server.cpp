@@ -6,7 +6,7 @@
 //
 
 // Internal Includes
-#include "CMIO_DPA_Sample_Server_Assistant.h"
+#include "CMIO_DPA_Sample_Server_IOBackedAssistant.h"
 
 // MIG Server Interface
 #include "CMIODPASampleServer.h"
@@ -32,7 +32,7 @@ namespace
 		// If CMIODPASampleServer() did not process the message see if it is a MACH_NOTIFY_NO_SENDERS notification
 		if (not processed and MACH_NOTIFY_NO_SENDERS == request->msgh_id)
 		{
-			Server::Assistant::Instance()->ClientDied(request->msgh_local_port);
+			Server::IOBackedAssistant::Instance()->ClientDied(request->msgh_local_port);
 			processed = true;
 		}
 		
@@ -75,7 +75,7 @@ int main()
 		#endif
 
 		// Add the service port to the Assistant's port set
-		mach_port_t portSet = Assistant::Instance()->GetPortSet();
+		mach_port_t portSet = IOBackedAssistant::Instance()->GetPortSet();
 		err = mach_port_move_member(mach_task_self(), servicePort, portSet);
 		if (KERN_SUCCESS != err)
 		{
