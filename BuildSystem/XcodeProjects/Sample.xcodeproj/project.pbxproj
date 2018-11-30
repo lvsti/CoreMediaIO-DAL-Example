@@ -1579,6 +1579,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14E09CAB113D8F640080AF21 /* CMIOSampleRelease.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1754,6 +1755,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14E09CAA113D8F640080AF21 /* CMIOSampleDebug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
