@@ -90,6 +90,7 @@
 		BE6996E321B042EF006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996E221B042EF006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.cpp */; };
 		BE6996E921B190E6006014B1 /* CMIO_DPA_Sample_Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996E821B190E6006014B1 /* CMIO_DPA_Sample_Server.cpp */; };
 		BE6996EF21B1A20B006014B1 /* CMIO_DPA_Sample_Server_IOBackedAssistant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996EA21B195A0006014B1 /* CMIO_DPA_Sample_Server_IOBackedAssistant.cpp */; };
+		BE6996F021B3DD22006014B1 /* CMIO_DPA_Sample_Server_IOBackedDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996E421B04666006014B1 /* CMIO_DPA_Sample_Server_IOBackedDevice.cpp */; };
 		E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
@@ -386,6 +387,8 @@
 		BE6996DE21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_IOBackedFrame.cpp; sourceTree = "<group>"; };
 		BE6996DF21AFF8A2006014B1 /* CMIO_DPA_Sample_Server_IOBackedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_IOBackedFrame.h; sourceTree = "<group>"; };
 		BE6996E221B042EF006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_MIGInterface.cpp; sourceTree = "<group>"; };
+		BE6996E421B04666006014B1 /* CMIO_DPA_Sample_Server_IOBackedDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_IOBackedDevice.cpp; sourceTree = "<group>"; };
+		BE6996E521B04666006014B1 /* CMIO_DPA_Sample_Server_IOBackedDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_IOBackedDevice.h; sourceTree = "<group>"; };
 		BE6996E721B18219006014B1 /* CMIO_DPA_Sample_Server_MIGInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_MIGInterface.h; sourceTree = "<group>"; };
 		BE6996E821B190E6006014B1 /* CMIO_DPA_Sample_Server.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server.cpp; sourceTree = "<group>"; };
 		BE6996EA21B195A0006014B1 /* CMIO_DPA_Sample_Server_IOBackedAssistant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_IOBackedAssistant.cpp; sourceTree = "<group>"; };
@@ -1136,6 +1139,8 @@
 			children = (
 				E42AA5E00E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Device.h */,
 				E42AA5DF0E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Device.cpp */,
+				BE6996E421B04666006014B1 /* CMIO_DPA_Sample_Server_IOBackedDevice.cpp */,
+				BE6996E521B04666006014B1 /* CMIO_DPA_Sample_Server_IOBackedDevice.h */,
 				E42AA5E40E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.h */,
 				E42AA5E30E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.cpp */,
 				BE6996DC21AFF59B006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.cpp */,
@@ -1543,6 +1548,7 @@
 				E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */,
 				BE6996EF21B1A20B006014B1 /* CMIO_DPA_Sample_Server_IOBackedAssistant.cpp in Sources */,
 				E4857F1910C842AD008FE5C2 /* CMIO_DP_ControlDictionary.cpp in Sources */,
+				BE6996F021B3DD22006014B1 /* CMIO_DPA_Sample_Server_IOBackedDevice.cpp in Sources */,
 				E4857F2B10C8448C008FE5C2 /* CMIO_DPA_Sample_Server_Deck.cpp in Sources */,
 				E47C6D1A11AC8AB9004DD1E7 /* CMIO_DP_Property_Base.cpp in Sources */,
 				E497688110F81488006AAA12 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */,
