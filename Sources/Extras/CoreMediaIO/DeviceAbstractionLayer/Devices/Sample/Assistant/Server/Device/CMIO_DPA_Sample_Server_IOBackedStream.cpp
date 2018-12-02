@@ -54,7 +54,7 @@
 
 // Internal Includes
 #include "CMIO_DPA_Sample_Server_ClientStream.h"
-#include "CMIO_DPA_Sample_Server_Device.h"
+#include "CMIO_DPA_Sample_Server_IOBackedDevice.h"
 #include "CMIO_DPA_Sample_Server_IOBackedFrame.h"
 #include "CMIO_DPA_Sample_Server_Deck.h"
 #include "CMIO_DPA_Sample_Shared.h"
@@ -83,7 +83,7 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// IOBackedStream()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	IOBackedStream::IOBackedStream(Device* device, IOKA::Object& registryEntry, CFDictionaryRef streamDictionary, CMIOObjectPropertyScope scope) :
+	IOBackedStream::IOBackedStream(IOBackedDevice* device, IOKA::Object& registryEntry, CFDictionaryRef streamDictionary, CMIOObjectPropertyScope scope) :
         Stream(device, streamDictionary, scope),
 		mRegistryEntry(registryEntry),
         mIOSPAlugIn(IOSA::AllocatePlugIn(mRegistryEntry)),

@@ -13,7 +13,7 @@
 #include "CMIO_DPA_Sample_Server_IOBackedAssistant.h"
 
 // Internal Includes
-#include "CMIO_DPA_Sample_Server_Device.h"
+#include "CMIO_DPA_Sample_Server_IOBackedDevice.h"
 
 // Public Utility Includes
 #include "CMIODebugMacros.h"
@@ -102,9 +102,10 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 			int index = 0;
 			for (Devices::const_iterator i = mDevices.begin() ; i != mDevices.end() ; ++i)
 			{
-				(*deviceStates)[index].mGUID = (**i).GetDeviceGUID();
-				(**i).GetRegistryPath((*deviceStates)[index].mRegistryPath);
+                const IOBackedDevice& device = *(static_cast<IOBackedDevice*>(*i));
+                (*deviceStates)[index].mGUID = device.GetDeviceGUID();
                 (*deviceStates)[index].mIsIOBacked = true;
+				device.GetRegistryPath((*deviceStates)[index].mRegistryPath);
 				++index;
 			}
 		}
@@ -156,7 +157,7 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 				try
 				{
 					// Create the new device
-					device = new Device(registryEntry, assistant.mNotificationPortThread);
+					device = new IOBackedDevice(registryEntry, assistant.mNotificationPortThread);
 					
 					// Add it to the set of discovered devices whose capabilities are known
 					assistant.mDevices.insert(device);
