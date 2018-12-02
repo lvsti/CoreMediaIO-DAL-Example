@@ -111,6 +111,15 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 		}
 	}
 
+    #pragma mark -
+    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Start()
+    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    void IOBackedStream::SetStreamFormat(IOVideoStreamDescription *newStreamFormat) {
+        UInt32 streamID = CACFNumber(static_cast<CFNumberRef>(CFDictionaryGetValue(mStreamDictionary.GetCFDictionary(), CFSTR(kIOVideoStreamKey_StreamID))), false).GetSInt32();
+        GetOwningDevice().GetIOVADevice().SetStreamFormat(streamID, newStreamFormat);
+    }
+
 	#pragma mark -
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Start()
