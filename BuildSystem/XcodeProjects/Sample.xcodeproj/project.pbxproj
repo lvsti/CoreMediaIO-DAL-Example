@@ -131,6 +131,7 @@
 		BE69972A21B52805006014B1 /* com.apple.cmio.DPA.SampleVCam.plist in Copy com.apple.cmio.DPA.Sample.plist to /Library/LaunchDaemons */ = {isa = PBXBuildFile; fileRef = BE69972921B52744006014B1 /* com.apple.cmio.DPA.SampleVCam.plist */; };
 		BE69972B21B52863006014B1 /* CMIO_DP_Sample_VirtualDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996D721AFEB68006014B1 /* CMIO_DP_Sample_VirtualDevice.cpp */; };
 		BE69973021B52A07006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996D221AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp */; };
+		BE69973321B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE69973121B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.cpp */; };
 		BE69973621B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE69973421B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.cpp */; };
 		E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
@@ -462,6 +463,8 @@
 		BE69972721B52531006014B1 /* CMIO_DPA_Sample_Server_VCamAssistant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_VCamAssistant.cpp; sourceTree = "<group>"; };
 		BE69972921B52744006014B1 /* com.apple.cmio.DPA.SampleVCam.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.apple.cmio.DPA.SampleVCam.plist; sourceTree = "<group>"; };
 		BE69972F21B529D0006014B1 /* SampleVCam.exp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.exports; path = SampleVCam.exp; sourceTree = "<group>"; };
+		BE69973121B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_VCamDevice.cpp; sourceTree = "<group>"; };
+		BE69973221B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_VCamDevice.h; sourceTree = "<group>"; };
 		BE69973421B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMIO_DPA_Sample_Server_VCamInputStream.cpp; sourceTree = "<group>"; };
 		BE69973521B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIO_DPA_Sample_Server_VCamInputStream.h; sourceTree = "<group>"; };
 		DE69900A0DBE99B60077AED4 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = /System/Library/Frameworks/CoreMediaIO.framework; sourceTree = "<absolute>"; };
@@ -1244,6 +1247,8 @@
 				BE6996DB21AFF59A006014B1 /* CMIO_DPA_Sample_Server_IOBackedStream.h */,
 				E42AA5E30E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.cpp */,
 				E42AA5E40E0741B7000C4D64 /* CMIO_DPA_Sample_Server_Stream.h */,
+				BE69973121B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.cpp */,
+				BE69973221B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.h */,
 				BE69973421B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.cpp */,
 				BE69973521B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.h */,
 			);
@@ -1598,6 +1603,7 @@
 				BE69971321B52481006014B1 /* CMIO_DP_Property_FirstOutputPresentationTimeStamp.cpp in Sources */,
 				BE69971521B52481006014B1 /* CMIO_SA_Assistance.cpp in Sources */,
 				BE69972521B524A0006014B1 /* CMIO_DPA_Sample_VCamServer.cpp in Sources */,
+				BE69973321B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
