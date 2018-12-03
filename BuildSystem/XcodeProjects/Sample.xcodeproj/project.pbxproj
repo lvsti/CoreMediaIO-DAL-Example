@@ -16,6 +16,7 @@
 		14C6D76E11AB20D700E54D26 /* IOVideoSampleDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F1EAF011A7375400B28A43 /* IOVideoSampleDevice.cpp */; };
 		14C6D76F11AB20D900E54D26 /* IOVideoSampleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F1EAF411A7375400B28A43 /* IOVideoSampleStream.cpp */; };
 		7206D01514633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */; };
+		BE5ADD3A21B548000096A336 /* ntsc2vuy720x480.yuv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14F1EAF811A7375400B28A43 /* ntsc2vuy720x480.yuv */; };
 		BE69967F21AEE7CE006014B1 /* CMIODPASample.defs in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5D80E0741B7000C4D64 /* CMIODPASample.defs */; };
 		BE69968021AEE7CE006014B1 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
 		BE69968121AEE7CE006014B1 /* CMIODebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6709E703CE00413E85 /* CMIODebugPrintf.cpp */; };
@@ -133,7 +134,6 @@
 		BE69973021B52A07006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996D221AFE254006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp */; };
 		BE69973321B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE69973121B52ED1006014B1 /* CMIO_DPA_Sample_Server_VCamDevice.cpp */; };
 		BE69973621B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE69973421B5321C006014B1 /* CMIO_DPA_Sample_Server_VCamInputStream.cpp */; };
-		BE69973821B546F0006014B1 /* ntsc2vuy720x480.yuv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14F1EAF811A7375400B28A43 /* ntsc2vuy720x480.yuv */; };
 		E42920F810B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42920F910B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E42920F610B75DB700EDA003 /* CMIO_DP_Property_Deck.cpp */; };
 		E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
@@ -313,6 +313,16 @@
 			name = "Copy com.apple.cmio.DPA.Sample.plist to /Library/LaunchDaemons";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE5ADD3921B547F20096A336 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				BE5ADD3A21B548000096A336 /* ntsc2vuy720x480.yuv in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE69971E21B52481006014B1 /* Copy com.apple.cmio.DPA.Sample.plist to /Library/LaunchDaemons */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,16 +332,6 @@
 				BE69972A21B52805006014B1 /* com.apple.cmio.DPA.SampleVCam.plist in Copy com.apple.cmio.DPA.Sample.plist to /Library/LaunchDaemons */,
 			);
 			name = "Copy com.apple.cmio.DPA.Sample.plist to /Library/LaunchDaemons";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE69973721B546BF006014B1 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "/Library/CoreMediaIO/Plug-Ins/DAL/SampleVCam.plugin/Contents/Resources";
-			dstSubfolderSpec = 0;
-			files = (
-				BE69973821B546F0006014B1 /* ntsc2vuy720x480.yuv in CopyFiles */,
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1328,6 +1328,7 @@
 				BE69967D21AEE7CE006014B1 /* Resources */,
 				BE69967E21AEE7CE006014B1 /* Sources */,
 				BE6996BC21AEE7CE006014B1 /* Frameworks */,
+				BE5ADD3921B547F20096A336 /* CopyFiles */,
 				BE6996C421AEE7CE006014B1 /* Make FCP Twin */,
 			);
 			buildRules = (
@@ -1348,7 +1349,6 @@
 				BE6996F321B52481006014B1 /* Sources */,
 				BE69971621B52481006014B1 /* Frameworks */,
 				BE69971E21B52481006014B1 /* Copy com.apple.cmio.DPA.Sample.plist to /Library/LaunchDaemons */,
-				BE69973721B546BF006014B1 /* CopyFiles */,
 			);
 			buildRules = (
 				BE69972021B52481006014B1 /* PBXBuildRule */,

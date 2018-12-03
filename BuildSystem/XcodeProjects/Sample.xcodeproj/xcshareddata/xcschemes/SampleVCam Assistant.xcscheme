@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE6996F221B52481006014B1"
-               BuildableName = "SampleVCam Assistant"
+               BuildableName = "SampleVCamAssistant"
                BlueprintName = "SampleVCam Assistant"
                ReferencedContainer = "container:Sample.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE6996F221B52481006014B1"
-            BuildableName = "SampleVCam Assistant"
+            BuildableName = "SampleVCamAssistant"
             BlueprintName = "SampleVCam Assistant"
             ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE6996F221B52481006014B1"
-            BuildableName = "SampleVCam Assistant"
+            BuildableName = "SampleVCamAssistant"
             BlueprintName = "SampleVCam Assistant"
             ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE6996F221B52481006014B1"
-            BuildableName = "SampleVCam Assistant"
+            BuildableName = "SampleVCamAssistant"
             BlueprintName = "SampleVCam Assistant"
             ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
