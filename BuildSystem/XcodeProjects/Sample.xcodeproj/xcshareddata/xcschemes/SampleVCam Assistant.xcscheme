@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE69967A21AEE7CE006014B1"
-               BuildableName = "Sample VCam Plugin.plugin"
-               BlueprintName = "Sample VCam Plugin"
+               BlueprintIdentifier = "BE6996F221B52481006014B1"
+               BuildableName = "SampleVCam Assistant"
+               BlueprintName = "SampleVCam Assistant"
                ReferencedContainer = "container:Sample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BE6996F221B52481006014B1"
+            BuildableName = "SampleVCam Assistant"
+            BlueprintName = "SampleVCam Assistant"
+            ReferencedContainer = "container:Sample.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BE69967A21AEE7CE006014B1"
-            BuildableName = "Sample VCam Plugin.plugin"
-            BlueprintName = "Sample VCam Plugin"
+            BlueprintIdentifier = "BE6996F221B52481006014B1"
+            BuildableName = "SampleVCam Assistant"
+            BlueprintName = "SampleVCam Assistant"
             ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BE69967A21AEE7CE006014B1"
-            BuildableName = "Sample VCam Plugin.plugin"
-            BlueprintName = "Sample VCam Plugin"
+            BlueprintIdentifier = "BE6996F221B52481006014B1"
+            BuildableName = "SampleVCam Assistant"
+            BlueprintName = "SampleVCam Assistant"
             ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
