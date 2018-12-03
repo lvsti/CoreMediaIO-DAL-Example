@@ -17,6 +17,7 @@
 		14C6D76F11AB20D900E54D26 /* IOVideoSampleStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F1EAF411A7375400B28A43 /* IOVideoSampleStream.cpp */; };
 		7206D01514633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7206D01314633F5B00CAE772 /* CMIO_DP_Property_ScheduledOutputNotificationProc.cpp */; };
 		BE5ADD3A21B548000096A336 /* ntsc2vuy720x480.yuv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14F1EAF811A7375400B28A43 /* ntsc2vuy720x480.yuv */; };
+		BE5ADD3B21B581600096A336 /* CMIO_DP_Sample_VirtualDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE6996D721AFEB68006014B1 /* CMIO_DP_Sample_VirtualDevice.cpp */; };
 		BE69967F21AEE7CE006014B1 /* CMIODPASample.defs in Sources */ = {isa = PBXBuildFile; fileRef = E42AA5D80E0741B7000C4D64 /* CMIODPASample.defs */; };
 		BE69968021AEE7CE006014B1 /* CMIODebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6509E703CE00413E85 /* CMIODebugMacros.cpp */; };
 		BE69968121AEE7CE006014B1 /* CMIODebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFCDB6709E703CE00413E85 /* CMIODebugPrintf.cpp */; };
@@ -1624,6 +1625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C93A890E083DA6008CA4C5 /* CMIODPASample.defs in Sources */,
+				BE5ADD3B21B581600096A336 /* CMIO_DP_Sample_VirtualDevice.cpp in Sources */,
 				BE6996D521AFE6D8006014B1 /* CMIO_DP_Sample_IOBackedDevice.cpp in Sources */,
 				E42AA55A0E073EEC000C4D64 /* CMIODebugMacros.cpp in Sources */,
 				E42AA55B0E073EEC000C4D64 /* CMIODebugPrintf.cpp in Sources */,
