@@ -53,7 +53,8 @@
 #include "CMIO_DP_Sample_PlugIn.h"
 
 // Internal Includes
-#include "CMIO_DP_Sample_Device.h"
+#include "CMIO_DP_Sample_IOBackedDevice.h"
+#include "CMIO_DP_Sample_VirtualDevice.h"
 
 // DAL PlugIn Base Includes
 #include "CMIO_DP_DeviceSettings.h"
@@ -79,7 +80,7 @@ namespace CMIO { namespace DP { namespace Sample
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// PlugIn()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	PlugIn::PlugIn(CFUUIDRef factoryUUID) :
+	PlugIn::PlugIn(CFUUIDRef factoryUUID, const char* assistantServiceName) :
 		DP::PlugIn(factoryUUID),
 		mAssistantPort(),
 		mDeviceEventPort(NULL),
@@ -87,6 +88,8 @@ namespace CMIO { namespace DP { namespace Sample
 		mAssistantCrashAnchorTime(CAHostTimeBase::GetCurrentTimeInNanos()),
 		mAssistantCrashCount(0)
 	{
+        mAssistantServiceName = new char[strlen(assistantServiceName) + 1];
+        strcpy(mAssistantServiceName, assistantServiceName);
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -101,6 +104,8 @@ namespace CMIO { namespace DP { namespace Sample
 			dispatch_release(mDeviceEventDispatchSource);
 			mDeviceEventDispatchSource = NULL;
 		}
+        
+        delete[] mAssistantServiceName;
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -141,7 +146,7 @@ namespace CMIO { namespace DP { namespace Sample
 		dispatch_resume(mDeviceEventDispatchSource);
 
 		// Get the Mach port on which messages will be sent to the SampleAssistant
-		mAssistantPort.Reset(DPA::Sample::GetPort());
+		mAssistantPort.Reset(DPA::Sample::GetPort(mAssistantServiceName));
 
 		// Get the state of all the devices currently connected
 		UpdateDeviceStates();
@@ -397,7 +402,7 @@ namespace CMIO { namespace DP { namespace Sample
 						++plugIn.mAssistantCrashCount;
 						
 						// Get the Mach port on which messages will be sent to the SampleAssistant
-						plugIn.mAssistantPort.Reset(DPA::Sample::GetPort());
+						plugIn.mAssistantPort.Reset(DPA::Sample::GetPort(plugIn.mAssistantServiceName));
 
 						// Get the state of all the devices currently connected
 						plugIn.UpdateDeviceStates();
@@ -467,7 +472,7 @@ namespace CMIO { namespace DP { namespace Sample
 				catch (...)
 				{
 					// No device was found with the indicated GUID, so it is a new device
-					DeviceArrived(deviceStates[i].mGUID, deviceStates[i].mRegistryPath);
+					DeviceArrived(deviceStates[i].mGUID, deviceStates[i].mRegistryPath, deviceStates[i].mIsIOBacked);
 				}
 			}
 		}
@@ -476,7 +481,7 @@ namespace CMIO { namespace DP { namespace Sample
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// DeviceArrived()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	void PlugIn::DeviceArrived(UInt64 guid, const io_string_t registryPath)
+	void PlugIn::DeviceArrived(UInt64 guid, const io_string_t& registryPath, Boolean isIOBacked)
 	{
 		try
 		{	
@@ -486,7 +491,14 @@ namespace CMIO { namespace DP { namespace Sample
 			ThrowIfError(err, CAException(err), "CMIO::DP::Sample::PlugIn::DeviceArrived: couldn't instantiate the CMIODevice object");
 
 			// Make a device object
-			Device* device = new Device(*this, deviceID, mAssistantPort, guid, registryPath);
+            Device* device = nullptr;
+            
+            if (isIOBacked) {
+                device = new IOBackedDevice(*this, deviceID, mAssistantPort, guid, registryPath);
+            }
+            else {
+                device = new VirtualDevice(*this, deviceID, mAssistantPort, guid);
+            }
 
 			try
 			{

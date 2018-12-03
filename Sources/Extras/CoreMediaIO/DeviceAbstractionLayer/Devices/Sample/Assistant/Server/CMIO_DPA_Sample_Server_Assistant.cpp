@@ -55,9 +55,6 @@
 // Internal Includes
 #include "CMIO_DPA_Sample_Server_Device.h"
 
-// MIG Server Interface
-#include "CMIODPASampleServer.h"
-
 // Public Utility Includes
 #include "CMIODebugMacros.h"
 
@@ -68,40 +65,13 @@
 
 // System Includes
 #include <CoreAudio/HostTime.h>
-#include <mach/mach.h>
-#include <mach/notify.h>
 #include <mach-o/dyld.h>
-#include <servers/bootstrap.h>
-#include <sys/param.h>
 
 // Standard Library Includes
 #include <algorithm>
 
 namespace
 {
-	// As a convenience, use the CMIO::DPA::Sample namespace.  This will allow convienient access in the anonymous namespace as well as in the CMIODPASampleXXX() public interface to the server
-	using namespace CMIO;
-	using namespace CMIO::DPA::Sample;
-
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// MessagesAndNotifications()
-	//	This handles messages from the client and the MACH_NOTIFY_NO_SENDERS notification on the client ports.
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	boolean_t MessagesAndNotifications(mach_msg_header_t* request, mach_msg_header_t* reply)
-	{
-		// Invoke the MIG created CMIODPASampleServer() to see if this is one of the client messages it handles
-		boolean_t processed = CMIODPASampleServer(request, reply);
-		
-		// If CMIODPASampleServer() did not process the message see if it is a MACH_NOTIFY_NO_SENDERS notification
-		if (not processed and MACH_NOTIFY_NO_SENDERS == request->msgh_id)
-		{
-			Server::Assistant::Instance()->ClientDied(request->msgh_local_port);
-			processed = true;
-		}
-		
-		return processed;
-	}
-
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// CopyPlugInBundle()
 	//	This locates the com.apple.cmio.DAL.Sample bundle so localized device names can be extracted from it.
@@ -143,12 +113,6 @@ namespace
 #pragma mark -
 namespace CMIO { namespace DPA { namespace Sample { namespace Server
 {
-	#pragma mark Static Globals
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Static Globals
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Assistant* Assistant::mInstance = 0;
-
 	#pragma mark -
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Assistant()
@@ -157,25 +121,13 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 		mStateMutex("SampleAssistant state mutex"),
 		mPlugInBundle(CopyPlugInBundle()),
 		mPortSet(MACH_PORT_NULL),
-		mNotificationPortThread(true),
-		mDeviceAddedIterators(),
 		mDevices(),
 		mClientInfoMap(),
 		mDeviceStateNotifiers()
 	{
-		// Wait for the notification port thread to be running prior to continuing
-		while (PTA::NotificationPortThread::kStarting == mNotificationPortThread.GetState())
-			pthread_yield_np();
-
-		// Make sure the notification port is not invalid
-		ThrowIf(PTA::NotificationPortThread::kInvalid == mNotificationPortThread.GetState(), -1, "Notification thread invalid");
-		
 		// Create a port set to hold the service port, and each client's port
 		kern_return_t err = mach_port_allocate(mach_task_self(), MACH_PORT_RIGHT_PORT_SET, &mPortSet);
 		ThrowIfKernelError(err, CAException(err), "Unable to create port set");
-		
-		// Initialize the notification for hot plugging of devices.  In addition to handling future hot plug events, this will also set up the devices that are currently plugged in
-		InitializeDeviceAddedNotification();
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -190,24 +142,12 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 	
 	#pragma mark -
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Instance()
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Assistant* Assistant::Instance()
-	{
-		if (0 == mInstance)
-			mInstance = new Assistant(); 
-		
-		return mInstance; 
-	}
-
-	#pragma mark -
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Connect()
 	//	This is the first call that clients invoke to establish a connection with the Assistant.  The Assistant will create a unique port for the client, add it to the portset it services,
 	//	and a return a send right to the client (via the MIG reply).  The Assistant will request a "no-sender" notification on that newly created port, thus allowing it to get a notification
 	//	in the event the client is terminated.
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	kern_return_t Assistant::Connect(pid_t clientPID, mach_port_t* client)
+	kern_return_t Assistant::Connect(mach_port_t servicePort, pid_t clientPID, mach_port_t* client)
 	{
 		*client = MACH_PORT_NULL;
 		
@@ -345,7 +285,8 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 			for (Devices::const_iterator i = mDevices.begin() ; i != mDevices.end() ; ++i)
 			{
 				(*deviceStates)[index].mGUID = (**i).GetDeviceGUID();
-				(**i).GetRegistryPath((*deviceStates)[index].mRegistryPath);
+                (*deviceStates)[index].mIsIOBacked = false;
+                
 				++index;
 			}
 		}
@@ -361,7 +302,7 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// GetProperties()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	kern_return_t Assistant::GetProperties(Client client, UInt64 guid, mach_port_t messagePort, UInt64 time, const PropertyAddress& matchAddress, PropertyAddress** addresses, mach_msg_type_number_t* length)
+	kern_return_t Assistant::GetProperties(Client client, UInt64 guid, mach_port_t messagePort, UInt64 time, CMIOObjectPropertyAddress matchAddress, PropertyAddress** addresses, mach_msg_type_number_t* length)
 	{
 		try
 		{
@@ -383,7 +324,7 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// GetPropertyState()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	kern_return_t Assistant::GetPropertyState(Client client, UInt64 guid, const PropertyAddress& address, UInt8* qualifier, mach_msg_type_number_t qualifierLength, UInt8** data, mach_msg_type_number_t* length)
+	kern_return_t Assistant::GetPropertyState(Client client, UInt64 guid, CMIOObjectPropertyAddress address, UInt8* qualifier, mach_msg_type_number_t qualifierLength, UInt8** data, mach_msg_type_number_t* length)
 	{
 		try
 		{
@@ -405,7 +346,7 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// SetPropertyState()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	kern_return_t Assistant::SetPropertyState(Client client, UInt64 guid, bool sendChangedNotifications, const PropertyAddress& address, UInt8* qualifier, mach_msg_type_number_t qualifierLength, Byte* data, mach_msg_type_number_t length)
+	kern_return_t Assistant::SetPropertyState(Client client, UInt64 guid, UInt32 sendChangedNotifications, CMIOObjectPropertyAddress address, UInt8* qualifier, mach_msg_type_number_t qualifierLength, Byte* data, mach_msg_type_number_t length)
 	{
 		try
 		{
@@ -546,7 +487,7 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// ProcessRS422Command()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	kern_return_t Assistant::ProcessRS422Command(UInt64 guid, ByteArray512 command, mach_msg_type_number_t commandLength, UInt32 responseLength, UInt32 *responseUsed, UInt8** response, mach_msg_type_number_t *responseCount)
+	kern_return_t Assistant::ProcessRS422Command(Client client, UInt64 guid, ByteArray512 command, mach_msg_type_number_t commandLength, UInt32 responseLength, UInt32 *responseUsed, UInt8** response, mach_msg_type_number_t *responseCount)
 	{
 		try
 		{
@@ -703,7 +644,7 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// DeckJog()
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	kern_return_t Assistant::DeckCueTo(Client client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element, Float64 requestedTimecode, Boolean	playOnCue)
+	kern_return_t Assistant::DeckCueTo(Client client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element, Float64 requestedTimecode, UInt32 playOnCue)
 	{
 		try
 		{
@@ -771,349 +712,4 @@ namespace CMIO { namespace DPA { namespace Sample { namespace Server
 		}
 	}
 
-
-	#pragma mark -
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// DeviceAdded()
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	void Assistant::DeviceArrived(Assistant& assistant, io_iterator_t iterator)
-	{
-		#if 0
-			// Wait forever until the Debugger can attach to the Assistant process
-			bool waiting = true;
-			while (waiting)
-			{
-				sleep(1);
-			}
-		#endif
-		
-		// Catch all exceptions since this is invoked via a call back and the exception cannot leave this routine 
-		try
-		{
-			// Grab the mutex for the Assistant's state
-			CAMutex::Locker locker(assistant.mStateMutex);
-			
-			// Get the current device count
-			UInt32 deviceCount = (UInt32)assistant.mDevices.size();
-			
-			while (true)
-			{
-				IOKA::Object registryEntry(IOIteratorNext(iterator));
-				if (not registryEntry.IsValid())
-					break;
-				
-				// Make sure the registry entry conforms to an IOVideoDevice
-				if (not registryEntry.ConformsTo("IOVideoDevice"))
-					continue;
-
-				Device* device = NULL;
-				
-				// Catch all exceptions so the iterator can be advanced to the next device in the event of any problems
-				try
-				{
-					// Create the new device
-					device = new Device(registryEntry, assistant.mNotificationPortThread);
-					
-					// Add it to the set of discovered devices whose capabilities are known
-					assistant.mDevices.insert(device);
-				}
-				catch (CAException& exception)
-				{
-					if (NULL != device)
-						delete device;
-				}
-			}
-			
-			// If any devices were successfully added, notify interested clients that a state change has taken place so they can call UpdateDeviceStates() at their convenience
-			if (deviceCount != assistant.mDevices.size())
-			{
-				// Send out the devices state changed message
-				for (ClientNotifiers::iterator i = assistant.mDeviceStateNotifiers.begin() ; i != assistant.mDeviceStateNotifiers.end() ; ++i)
-					assistant.SendDeviceStatesChangedMessage((*i).second);
-
-				// All the 'send-once' rights are now used up, so erase everything in the multimap 
-				assistant.mDeviceStateNotifiers.erase(assistant.mDeviceStateNotifiers.begin(), assistant.mDeviceStateNotifiers.end());
-			}
-		}
-		catch (...)
-		{
-		}
-	}
-
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// DeviceRemoved()
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	void Assistant::DeviceRemoved(Device& device)
-	{
-		// Catch all exceptions since exceptions cannot leave this routine 
-		try
-		{
-			// Grab the mutex for the Assistant's state
-			CAMutex::Locker locker(mStateMutex);
-			
-			// Iterate over the ClientInfoMap and remove this device from each clients' set of streams it was watching
-			for (ClientInfoMap::iterator i = mClientInfoMap.begin() ; i != mClientInfoMap.end() ; ++i)
-			{
-				while (true)
-				{
-					// See if this client was watching a stream from this device
-					StreamSpecifiers::iterator ii = std::find_if((*i).second->mStreamSpecifiers.begin(), (*i).second->mStreamSpecifiers.end(), StreamSpecifier::DeviceEqual(device));
-					if (ii == (*i).second->mStreamSpecifiers.end())
-						break;
-					
-					// This client had a stream that corresponded to this device, so erase it
-					(void) (*i).second->mStreamSpecifiers.erase(ii);
-				}
-			}
-
-			// Erase the device from the set of devices which the Assistant knows about
-			(void) mDevices.erase(&device);
-			
-			// Notify interested clients that a state change has taken place so they can call UpdateDeviceStates() at their convenience
-			for (ClientNotifiers::iterator i = mDeviceStateNotifiers.begin() ; i != mDeviceStateNotifiers.end() ; ++i)
-				SendDeviceStatesChangedMessage((*i).second);
-
-			// All the 'send-once' rights are now used up, so erase everything multimap 
-			mDeviceStateNotifiers.erase(mDeviceStateNotifiers.begin(), mDeviceStateNotifiers.end());
-		}
-		catch (...)
-		{
-		}
-	}
-
-	#pragma mark -
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// InitializeDeviceAddedNotification()
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	void Assistant::InitializeDeviceAddedNotification()
-	{
-		// Create a matching dictionary to specify that only Sample devices are of interest
-		CACFDictionary matchingDictionary(IOServiceMatching("IOVideoSampleDevice"), true);
-		ThrowIf(not matchingDictionary.IsValid(), -1, "Assistant::InitializeDeviceAddedNotification: unable to get service matching dictionary");
-
-		// Create the notification
-		CreateDeviceAddedNotification(matchingDictionary.GetCFMutableDictionary());
-	}
-
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// CreateDeviceAddedNotification()
-	//	Request device added notfication for the device specified in the provided matching dictionary.
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	void Assistant::CreateDeviceAddedNotification(CFMutableDictionaryRef matchingDictionary)
-	{
-		// IOServiceAddMatchingNotification 'eats' a matching dictionary, so up the retention count
-		CFRetain(matchingDictionary);
-
-		IOKA::Object iterator;
-		IOReturn ioReturn = IOServiceAddMatchingNotification(mNotificationPortThread.GetNotificationPort(), kIOMatchedNotification, matchingDictionary, reinterpret_cast<IOServiceMatchingCallback>(DeviceArrived), this, iterator.GetAddress());
-		ThrowIfError(ioReturn, CAException(ioReturn), "Assistant::CreateDeviceAddedNotification: IOServiceAddMatchingNotification() failed");
-			
-		mDeviceAddedIterators.push_back(iterator);
-		
-		// The iterator is returned unarmed, but full of the devices which matched the dictionary.  So manually invoke the DeviceArrived() routine to add all the devices already present and
-		// to arm the iterator for subsequent additions.
-		DeviceArrived(*this, iterator);
-	}
 }}}}
-
-// As a convenience, use the CMIO::DPA::Sample::Server namespace
-using namespace CMIO::DPA::Sample::Server;
-
-#pragma mark -
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// main()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-int main()
-{
-	// Don't allow any exceptions to escape
-	try
-	{
-		// Check in with the bootstrap port under the agreed upon name to get the servicePort with receive rights
-		mach_port_t servicePort;
-		name_t serviceName = "com.apple.cmio.DPA.Sample";
-		kern_return_t err = bootstrap_check_in(bootstrap_port, serviceName, &servicePort); 
-		if (BOOTSTRAP_SUCCESS != err)
-		{
-			DebugMessage("bootstrap_check_in() failed: 0x%x", err);
-			exit(43);
-		}
-	
-		#if 0
-			// Wait forever until the Debugger can attach to the Assistant process
-			bool waiting = true;
-			while (waiting)
-			{
-				sleep(1);
-			}
-		#endif
-
-		// Add the service port to the Assistant's port set
-		mach_port_t portSet = Assistant::Instance()->GetPortSet();
-		err = mach_port_move_member(mach_task_self(), servicePort, portSet);
-		if (KERN_SUCCESS != err)
-		{
-			DebugMessage("Unable to add service port to port set: 0x%x", err);
-			exit(2);
-		}
-
-		// Service incoming messages from the clients and notifications which were signed up for 
-		while (true)
-		{
-			(void) mach_msg_server(MessagesAndNotifications, 8192, portSet, MACH_MSG_OPTION_NONE);
-		}
-	}
-	catch (const CAException& exception)
-	{
-		exit(exception.GetError());
-	}
-	catch (...)
-	{
-		DebugMessage("Terminated by an an unknown exception");
-		exit(44);
-	}
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleConnect()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleConnect(mach_port_t servicePort, pid_t client, mach_port_t* clientSendPort)
-{
-	return Assistant::Instance()->Connect(client, clientSendPort);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleDisconnect()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleDisconnect(mach_port_t client)
-{
-	return Assistant::Instance()->Disconnect(client);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleGetDeviceStates()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleGetDeviceStates(mach_port_t client, mach_port_t messagePort, DeviceState** deviceStates, mach_msg_type_number_t* length)
-{
-	return Assistant::Instance()->GetDeviceStates(client, messagePort, deviceStates, length);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleGetProperties()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleGetProperties(mach_port_t client, UInt64 guid, mach_port_t messagePort, UInt64 time, CMIOObjectPropertyAddress matchAddress, PropertyAddress** addresses, mach_msg_type_number_t* length)
-{
-	return Assistant::Instance()->GetProperties(client, guid, messagePort, time, matchAddress, addresses, length);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleGetPropertyState()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleGetPropertyState(mach_port_t client, UInt64 guid, CMIOObjectPropertyAddress address, UInt8* qualifier, mach_msg_type_number_t qualifierLength, UInt8** data, mach_msg_type_number_t* length)
-{
-	return Assistant::Instance()->GetPropertyState(client, guid, address, qualifier, qualifierLength, data, length);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleSetPropertyState()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleSetPropertyState(mach_port_t client, UInt64 guid, UInt32 sendChangedNotifications, CMIOObjectPropertyAddress address, UInt8* qualifier, mach_msg_type_number_t qualifierLength, Byte* data, mach_msg_type_number_t length)
-{
-	return Assistant::Instance()->SetPropertyState(client, guid, sendChangedNotifications, address, qualifier, qualifierLength, data, length);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleGetControls()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleGetControls(mach_port_t client, UInt64 guid, mach_port_t messagePort, UInt64 time, ControlChanges** controlChanges, mach_msg_type_number_t* length)
-{
-	return Assistant::Instance()->GetControls(client, guid, messagePort, time, controlChanges, length);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleSetControl()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleSetControl(mach_port_t client, UInt64 guid, UInt32 controlID, UInt32 value, UInt32* newValue)
-{
-	return Assistant::Instance()->SetControl(client, guid, controlID, value, newValue);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleProcessRS422Command()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleProcessRS422Command(mach_port_t client, UInt64 guid, ByteArray512 command, mach_msg_type_number_t commandLength, UInt32 responseLength, UInt32 *responseUsed, UInt8** response, mach_msg_type_number_t *responseCount)
-{
-	return Assistant::Instance()->ProcessRS422Command(guid, command, commandLength, responseLength, responseUsed, response, responseCount);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleStartStream()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleStartStream(mach_port_t client, UInt64 guid, mach_port_t messagePort, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element)
-{
-	return Assistant::Instance()->StartStream(client, guid, messagePort, scope, element);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleStopStream()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleStopStream(mach_port_t client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element)
-{
-	return Assistant::Instance()->StopStream(client, guid, scope, element);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleGetControlList()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleGetControlList(mach_port_t client, UInt64 guid, UInt8** data, mach_msg_type_number_t* length)
-{
-	return Assistant::Instance()->GetControlList(client, guid, data, length);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleStartDeckThreads()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleStartDeckThreads(mach_port_t client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element)
-{
-	return Assistant::Instance()->StartDeckThreads(client, guid, scope, element);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleStopDeckThreads()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleStopDeckThreads(mach_port_t client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element)
-{
-	return Assistant::Instance()->StopDeckThreads(client, guid, scope, element);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleDeckPlay()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleDeckPlay(mach_port_t client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element)
-{
-	return Assistant::Instance()->DeckPlay(client, guid, scope, element);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleDeckStop()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleDeckStop(mach_port_t client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element)
-{
-	return Assistant::Instance()->DeckStop(client, guid, scope, element);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleDeckPlay()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleDeckJog(mach_port_t client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element, SInt32 speed)
-{
-	return Assistant::Instance()->DeckJog(client, guid, scope, element, speed);
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// CMIODPASampleDeckPlay()
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-kern_return_t CMIODPASampleDeckCueTo(mach_port_t client, UInt64 guid, CMIOObjectPropertyScope scope, CMIOObjectPropertyElement element, Float64 requestedTimecode, UInt32 playOnCue)
-{
-	return Assistant::Instance()->DeckCueTo(client, guid, scope, element, requestedTimecode, playOnCue);
-}
-
