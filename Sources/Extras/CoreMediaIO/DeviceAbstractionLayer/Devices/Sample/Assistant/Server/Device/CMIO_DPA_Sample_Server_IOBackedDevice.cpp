@@ -28,32 +28,6 @@
 #include "CAException.h"
 #include "CAHostTimeBase.h"
 
-namespace
-{
-	#pragma mark Property Addresses
-	// These property addresses are specified in DEVICE RELATIVE terms (i.e., {selector, kCMIODevicePropertyScopeXXXX, element # }
-	//	
-	//		kHogModeAddress
-	//		This wouldn't be needed if the device can never be accessed by a non-DAL mechanism (e.g., a QuickTime video digitizer), since it value would always be -1, so the plugIn could
-	//		always report that.
-	//		It is only here to provide the ground work in the event the item non-DAL items can grab exclusive access to the device.  If so, then further fleshing out would be needed to
-	//		become aware of when such an event happens so that the property could be set to something other than -1.  (The PID of the Assistant would be an adequate stand in should the
-	//		actual PID not be determinable.)
-	//
-	//		kExcludeNonDALAccessAddress
-	//		Similarly, this is not necessary if this device can't be accessed by a non-DAL mechanism since the plugIn could handle everything then.  It is only here to provide the groundwork
-	//		in the event non-DAL items can access the device.  If so, then further fleshing out would be needed to lock out other items.
-
-	// Properties at the device level
-	const CMIO::PropertyAddress kInputStreamConfigurationAddress		= CMIO::PropertyAddress(kCMIODevicePropertyStreamConfiguration, kCMIODevicePropertyScopeInput);
-	const CMIO::PropertyAddress kOutputStreamConfigurationAddress	= CMIO::PropertyAddress(kCMIODevicePropertyStreamConfiguration, kCMIODevicePropertyScopeOutput);
-	const CMIO::PropertyAddress kHogModeAddress						= CMIO::PropertyAddress(kCMIODevicePropertyHogMode);
-	const CMIO::PropertyAddress kDeviceMasterAddress					= CMIO::PropertyAddress(kCMIODevicePropertyDeviceMaster);
-	const CMIO::PropertyAddress kExcludeNonDALAccessAddress			= CMIO::PropertyAddress(kCMIODevicePropertyExcludeNonDALAccess);
-	const CMIO::PropertyAddress kDeviceIsRunningSomewhereAddress		= CMIO::PropertyAddress(kCMIODevicePropertyDeviceIsRunningSomewhere);
-	const CMIO::PropertyAddress kClientSyncDiscontinuityAddress		= CMIO::PropertyAddress(kCMIODevicePropertyClientSyncDiscontinuity);
-}
-
 namespace CMIO { namespace DPA { namespace Sample { namespace Server
 {
 	#pragma mark -
