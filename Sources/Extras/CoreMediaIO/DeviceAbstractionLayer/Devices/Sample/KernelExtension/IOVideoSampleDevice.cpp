@@ -484,8 +484,8 @@ IOReturn IOVideoSampleDevice::sendOutputFrame(void)
 		theBuffControl.totalFrameCount = mFrameCountFromStart; 
 		theBuffControl.droppedFrameCount = mDroppedFrameCount; 
 		theBuffControl.firstVBITime = mFirstInputAtTwoSecondBoundaryHostTimeUptime; 
-		IOByteCount writeCount;
-		writeCount = ctrlDescriptor->writeBytes(0, &theBuffControl, sizeof(SampleVideoDeviceControlBuffer));
+		//IOByteCount writeCount =
+		ctrlDescriptor->writeBytes(0, &theBuffControl, sizeof(SampleVideoDeviceControlBuffer));
 		
 //		USBLog(1, "wrote %ld bytes\n", writeCount);
 //		USBLog(1, "Setting bufftime %lld\n", ts);
@@ -1097,7 +1097,7 @@ IOReturn IOVideoSampleDevice::setStreamFormat(UInt32 streamID, const IOVideoStre
 			}
 		}
 	}
-	return kIOReturnSuccess; 
+	return theAnswer;
 }
 
 
@@ -1324,7 +1324,7 @@ bool IOVideoSampleDevice::AddInputStreams()
 	IOMemoryDescriptor* cntrldescr;
 	IOStreamBuffer* buf;
 	OSArray* buffers;
-	int numBuffers;
+    int numBuffers = 0;
 	OSDictionary*	theInputStream = NULL;
 	OSArray*		theInputStreamList = NULL;
 	IOByteCount		theBufferSize;
@@ -1486,7 +1486,7 @@ bool IOVideoSampleDevice::AddOutputStreams()
 	IOMemoryDescriptor* cntrldescr;
 	IOStreamBuffer* buf;
 	OSArray* buffers;
-	int numBuffers;
+    int numBuffers = 0;
 	//	initialize some locals that might need cleaning up
 	OSDictionary*	theOutputStream = NULL;
 	OSArray*		theOutputStreamList = NULL;
@@ -1772,8 +1772,8 @@ bool IOVideoSampleDevice::ResetInputStreams()
 	IOMemoryDescriptor* descr, * controlDescr;
 	int i;
 	IOStreamBuffer* buf;
-	IOByteCount		bufferSize;
-	int numBuffers;
+    IOByteCount		bufferSize = 0;
+    int numBuffers = 0;
 	char*	srcBuffer;
 	IOReturn removeStatus = kIOReturnSuccess;  
 	
@@ -1890,8 +1890,8 @@ bool IOVideoSampleDevice::ResetOutputStreams()
 	IOMemoryDescriptor* descr, *controlDescr;
 	int i;
 	IOStreamBuffer* buf;
-	IOByteCount		bufferSize;
-	int numBuffers;
+    IOByteCount		bufferSize = 0;
+    int numBuffers = 0;
 	
 	if (_inputStream)
 	{

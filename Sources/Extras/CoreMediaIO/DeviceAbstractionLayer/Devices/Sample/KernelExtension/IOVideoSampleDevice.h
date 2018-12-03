@@ -115,16 +115,16 @@ protected:
         
 public:
     // IOKit methods
-	virtual void				free(void);
-	virtual bool				start(IOService* provider);
-	virtual void				stop(IOService* provider);
+	virtual void				free(void) override;
+	virtual bool				start(IOService* provider) override;
+	virtual void				stop(IOService* provider) override;
 
     // IOVideoStream methods
-	virtual IOReturn			startStream(IOVideoStream* stream);
-    virtual IOReturn			stopStream(IOVideoStream* stream);
-    virtual IOReturn			suspendStream(IOVideoStream* stream);
-    virtual IOReturn			setControlValue(UInt32 controlID, UInt32 value, UInt32* newValue);
-	virtual IOReturn			setStreamFormat(UInt32 streamID, const IOVideoStreamDescription* newStreamFormat);
+	virtual IOReturn			startStream(IOVideoStream* stream) override;
+    virtual IOReturn			stopStream(IOVideoStream* stream) override;
+    virtual IOReturn			suspendStream(IOVideoStream* stream) override;
+    virtual IOReturn			setControlValue(UInt32 controlID, UInt32 value, UInt32* newValue) override;
+	virtual IOReturn			setStreamFormat(UInt32 streamID, const IOVideoStreamDescription* newStreamFormat) override;
 
 private:
 	static OSDictionary*		createDefaultInputStreamDictionary();

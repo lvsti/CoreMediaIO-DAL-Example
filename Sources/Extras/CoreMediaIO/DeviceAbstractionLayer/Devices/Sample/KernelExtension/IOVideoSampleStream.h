@@ -60,17 +60,17 @@ protected:
 	OSArray*					_filledBuffers;
 	
 public:
-	virtual void				free(void);
+	virtual void				free(void) override;
 	
 	static IOVideoSampleStream*	withBuffers(OSArray* buffers, IOStreamMode mode = kIOStreamModeOutput, IOItemCount queueLength = 0, OSDictionary* properties = 0);
 	
-	virtual bool				initWithBuffers(OSArray* buffers, IOStreamMode mode = kIOStreamModeOutput, IOItemCount queueLength = 0, OSDictionary* properties = 0);
+	virtual bool				initWithBuffers(OSArray* buffers, IOStreamMode mode = kIOStreamModeOutput, IOItemCount queueLength = 0, OSDictionary* properties = 0) override;
 	
-	virtual bool				handleOpen(IOService* forClient, IOOptionBits options, void* arg);
-	virtual void				handleClose(IOService* forClient, IOOptionBits options = 0);
+	virtual bool				handleOpen(IOService* forClient, IOOptionBits options, void* arg) override;
+	virtual void				handleClose(IOService* forClient, IOOptionBits options = 0) override;
 	
-	virtual void				inputCallback(UInt32 token);
-	virtual void				inputSyncCallback(UInt32 token);
+	virtual void				inputCallback(UInt32 token) override;
+	virtual void				inputSyncCallback(UInt32 token) override;
 	
 	IOStreamBuffer*				getFilledBuffer();
 	void						returnBufferToFreeQueue(IOStreamBuffer* buffer);
