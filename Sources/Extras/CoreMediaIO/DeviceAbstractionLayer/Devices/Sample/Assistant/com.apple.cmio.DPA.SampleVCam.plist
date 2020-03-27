@@ -6,7 +6,7 @@
 	<string>com.apple.cmio.DPA.SampleVCam</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Library/CoreMediaIO/Plug-Ins/DAL/Sample.plugin/Contents/Resources/SampleVCamAssistant</string>
+		<string>/Library/CoreMediaIO/Plug-Ins/DAL/SampleVCam.plugin/Contents/Resources/SampleVCamAssistant</string>
 	</array>
 	<key>MachServices</key>
 	<dict>
