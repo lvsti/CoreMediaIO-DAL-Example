@@ -20,6 +20,8 @@ The original sample was mainly focused around camera plugins backed by real hard
 
 Xcode 10.1+
 
+Note: the sample YUV files in the [KernelExtension](https://github.com/lvsti/CoreMediaIO-DAL-Example/tree/master/Sources/Extras/CoreMediaIO/DeviceAbstractionLayer/Devices/Sample/KernelExtension) folder have been removed from the repo because the increased traffic continuously exhausted my LFS quota. From now on, please refer to the official [CoreMediaIO sample code](https://developer.apple.com/library/archive/samplecode/CoreMediaIO/Introduction/Intro.html) bundle which also contains these files.
+
 ### Contributing
 
 The goal of this project is to maintain an up-to-date and relevant sample code for those who have just made first contact with the CoreMediaIO DAL world. Contributions along these lines are warmly welcome. Improvements, however, that are introducing a new feature or would steer the project away from its general/educational purpose would probably best be placed in a different fork.
